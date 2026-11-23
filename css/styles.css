@@ -1,0 +1,685 @@
+/* ==========================================================================
+   CodeCraft Society — University Coding Club (ITM University, Gwalior)
+   Design System: Swiss Editorial / Architectural Brutalist
+   Theme: "Code. Create. Collaborate."
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ROOT VARIABLES & THEMES (PAPER vs INK)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paper Mode (Default) */
+  --bg-primary: #F4F3EF;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #EAE8E1;
+  --ink-primary: #0A0A0A;
+  --ink-secondary: #4A4A4A;
+  --border-hairline: #0A0A0A;
+  
+  /* Brand Accent */
+  --signal-orange: #FF4D00;
+  --signal-orange-light: #FF6A26;
+  --signal-orange-subtle: rgba(255, 77, 0, 0.12);
+  --signal-green: #00D26A;
+
+  /* Architectural Grid & UI */
+  --grid-line: rgba(10, 10, 10, 0.12);
+  --dot-grid-color: rgba(10, 10, 10, 0.15);
+  --surface-hover: #ECEAE2;
+  --tag-bg: #E3E0D6;
+  --card-shadow: 6px 6px 0px #0A0A0A;
+  --card-shadow-sm: 3px 3px 0px #0A0A0A;
+  --card-shadow-active: 1px 1px 0px #0A0A0A;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-editorial: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Dark Mode: INK Mode */
+html.dark {
+  --bg-primary: #0A0A0A;
+  --bg-surface: #141414;
+  --bg-subtle: #1C1C1C;
+  --ink-primary: #F4F3EF;
+  --ink-secondary: #A3A3A3;
+  --border-hairline: #2E2E2E;
+
+  --grid-line: rgba(244, 243, 239, 0.08);
+  --dot-grid-color: rgba(244, 243, 239, 0.12);
+  --surface-hover: #222222;
+  --tag-bg: #262626;
+  --card-shadow: 6px 6px 0px #FF4D00;
+  --card-shadow-sm: 3px 3px 0px #FF4D00;
+  --card-shadow-active: 1px 1px 0px #FF4D00;
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE & RESET
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-editorial);
+  background-color: var(--bg-primary);
+  color: var(--ink-primary);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--ink-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  position: relative;
+}
+
+/* Blueprint Dot Grid Background */
+.blueprint-grid {
+  background-image: radial-gradient(var(--dot-grid-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.blueprint-grid-lg {
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Top Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--signal-orange);
+  z-index: 9999;
+  transition: width 0.08s ease-out;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--signal-orange);
+  color: #FFFFFF;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border-hairline);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--signal-orange);
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY & BRUTALIST UTILITIES
+   -------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.tracking-brutal-tight {
+  letter-spacing: -0.04em;
+}
+
+.tracking-brutal-wide {
+  letter-spacing: 0.12em;
+}
+
+/* Architectural Hairline Borders */
+.border-brutal {
+  border: 1px solid var(--border-hairline);
+}
+
+.border-brutal-2 {
+  border: 2px solid var(--border-hairline);
+}
+
+.border-brutal-b {
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.border-brutal-t {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.border-brutal-l {
+  border-left: 1px solid var(--border-hairline);
+}
+
+.border-brutal-r {
+  border-right: 1px solid var(--border-hairline);
+}
+
+/* Hard Drop Shadows (Brutalist style) */
+.shadow-brutal {
+  box-shadow: var(--card-shadow);
+}
+
+.shadow-brutal-sm {
+  box-shadow: var(--card-shadow-sm);
+}
+
+.shadow-brutal-hover {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-brutal-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px var(--border-hairline);
+}
+
+.shadow-brutal-hover:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--card-shadow-active);
+}
+
+/* Architectural Corner Marks / Crosshairs */
+.corner-crosshairs {
+  position: relative;
+}
+
+.corner-crosshairs::before,
+.corner-crosshairs::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.corner-crosshairs::before {
+  top: 4px;
+  left: 4px;
+}
+
+.corner-crosshairs::after {
+  bottom: 4px;
+  right: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. BUTTONS & INTERACTION ELEMENTS
+   -------------------------------------------------------------------------- */
+.btn-brutal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--signal-orange);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid var(--ink-primary);
+  box-shadow: 4px 4px 0px var(--ink-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-brutal-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--ink-primary);
+  background-color: var(--signal-orange-light);
+}
+
+.btn-brutal-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink-primary);
+}
+
+.btn-brutal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--bg-surface);
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid var(--border-hairline);
+  box-shadow: 4px 4px 0px var(--border-hairline);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-brutal-secondary:hover {
+  background-color: var(--surface-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--border-hairline);
+}
+
+.btn-brutal-secondary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-hairline);
+}
+
+/* Micro Tactical Button */
+.btn-tactical {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.75rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--ink-primary);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.btn-tactical:hover {
+  background-color: var(--ink-primary);
+  color: var(--bg-primary);
+  border-color: var(--ink-primary);
+}
+
+/* --------------------------------------------------------------------------
+   5. HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.nav-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--ink-primary);
+  background-color: var(--bg-subtle);
+  border-color: var(--border-hairline);
+}
+
+.nav-link.active {
+  color: var(--signal-orange);
+  font-weight: 700;
+  border-color: var(--border-hairline);
+  background-color: var(--bg-surface);
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION & 3D CANVAS
+   -------------------------------------------------------------------------- */
+.hero-split {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  min-height: calc(100vh - 65px);
+}
+
+@media (max-width: 1024px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.sculpture-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+
+#sculpture-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sculpture-overlay-badge {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  padding: 0.35rem 0.65rem;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. EVENTS FILTER & CARDS
+   -------------------------------------------------------------------------- */
+.filter-tab {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-tab:hover {
+  color: var(--ink-primary);
+  background-color: var(--bg-subtle);
+}
+
+.filter-tab.active {
+  background-color: var(--signal-orange);
+  color: #FFFFFF;
+  border-color: var(--ink-primary);
+  box-shadow: 2px 2px 0px var(--ink-primary);
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px var(--border-hairline);
+  border-color: var(--signal-orange);
+}
+
+/* --------------------------------------------------------------------------
+   8. DOMAINS STACKING CARDS
+   -------------------------------------------------------------------------- */
+.domain-card {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-hairline);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.domain-card:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--signal-orange);
+  box-shadow: 8px 8px 0px var(--border-hairline);
+}
+
+/* --------------------------------------------------------------------------
+   9. STATS PORTAL SECTION
+   -------------------------------------------------------------------------- */
+.stats-portal {
+  background-color: #0A0A0A;
+  color: #F4F3EF;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-portal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FF4D00, transparent);
+}
+
+.stat-counter-val {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   10. MODALS (REGISTRATION & HARDWARE CLI)
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-hairline);
+  box-shadow: 12px 12px 0px var(--ink-primary);
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.modal-backdrop.active .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+/* Hardware Teenage Engineering Style CLI */
+.hardware-cli {
+  background: #111111;
+  color: #00FF66;
+  border: 3px solid #333333;
+  box-shadow: 16px 16px 0px #FF4D00;
+  font-family: var(--font-mono);
+  max-width: 780px;
+  width: 100%;
+}
+
+.hardware-chassis {
+  background: #1E1E1E;
+  border-bottom: 2px solid #333333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.led-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00FF66;
+  box-shadow: 0 0 8px #00FF66;
+  display: inline-block;
+  animation: pulse-led 2s infinite ease-in-out;
+}
+
+@keyframes pulse-led {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.cli-screen {
+  background: #080808;
+  padding: 1.25rem;
+  min-height: 320px;
+  max-height: 440px;
+  overflow-y: auto;
+  border-bottom: 2px solid #222222;
+  color: #D4D4D4;
+}
+
+.cli-input-row {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: #141414;
+  gap: 0.75rem;
+}
+
+.cli-prompt-symbol {
+  color: #FF4D00;
+  font-weight: 700;
+}
+
+.cli-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+}
+
+/* Ticket Pass Component */
+.ticket-pass {
+  background: var(--bg-surface);
+  border: 2px dashed var(--border-hairline);
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-pass::before,
+.ticket-pass::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-hairline);
+  transform: translateY(-50%);
+}
+
+.ticket-pass::before {
+  left: -12px;
+}
+
+.ticket-pass::after {
+  right: -12px;
+}
+
+/* --------------------------------------------------------------------------
+   11. MARQUEE & TICKER TAPE
+   -------------------------------------------------------------------------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* --------------------------------------------------------------------------
+   12. FORM ELEMENTS
+   -------------------------------------------------------------------------- */
+.input-brutal {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-brutal:focus {
+  border-color: var(--signal-orange);
+  box-shadow: 2px 2px 0px var(--signal-orange);
+}
+
+.label-brutal {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  color: var(--ink-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVE HELPERS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .btn-brutal-primary,
+  .btn-brutal-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
