@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Explore — CodeCraft Society | ITM University, Gwalior</title>
+  <meta name="description" content="Explore CodeCraft Society's engineering charter, vision & mission, open-source projects, timeline ledger, and student council at ITM University Gwalior.">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'signal-orange': '#FF4D00',
+            'signal-orange-light': '#FF6A26',
+            'paper-bg': '#F4F3EF',
+            'paper-surface': '#FFFFFF',
+            'paper-subtle': '#EAE8E1',
+            'ink-dark': '#0A0A0A',
+            'ink-gray': '#4A4A4A',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            editorial: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="blueprint-grid min-h-screen flex flex-col selection:bg-[#FF4D00] selection:text-white">
+
+  <!-- Top 2px Signal Orange Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- =========================================================================
+       STICKY GRID-CELL HEADER (MATCHING INDEX.HTML)
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[var(--bg-primary)] border-b border-[var(--border-hairline)] transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-18">
+        
+        <!-- Left: Custom Split Badge Logo + ITM Badge -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="index.html" class="flex items-center gap-2.5 group text-decoration-none" title="CodeCraft Society — ITM University Gwalior">
+            <div class="h-9 sm:h-10 border border-[var(--border-hairline)] flex items-center shadow-sm overflow-hidden font-mono text-xs font-extrabold tracking-wider bg-white dark:bg-[#141414]">
+              <div class="bg-[#0A0A0A] text-[#F4F3EF] px-2 sm:px-2.5 py-1.5 flex items-center gap-1 border-r border-[#333333]">
+                <span class="tracking-widest">CO</span><span class="text-[#FF4D00]">DE</span>
+              </div>
+              <div class="bg-white dark:bg-[#1C1C1C] text-[var(--ink-primary)] px-2 sm:px-2.5 py-1.5 flex items-center gap-1">
+                <span>CRAFT</span>
+                <span class="text-[#FF4D00] font-mono font-bold">&lt;/&gt;</span>
+              </div>
+            </div>
+            
+            <div class="hidden sm:flex flex-col">
+              <div class="flex items-center gap-1.5">
+                <span class="font-display font-black text-sm tracking-tight text-[var(--ink-primary)]">CODECRAFT</span>
+                <span class="bg-[#FF4D00] text-white text-[9px] font-mono font-bold px-1 py-0.2 border border-black uppercase tracking-tight">[ITM]</span>
+              </div>
+              <span class="font-mono text-[9px] text-[var(--ink-secondary)] uppercase tracking-wider">Univ. Coding Club</span>
+            </div>
+          </a>
+
+          <div class="hidden xl:flex items-center pl-3 border-l border-[var(--border-hairline)] text-[10px] font-mono text-[var(--ink-secondary)]">
+            <span class="inline-block w-2 h-2 rounded-full bg-[#00D26A] mr-1.5 animate-pulse"></span>
+            <span>GWL 26.1398°N, 78.2045°E</span>
+          </div>
+        </div>
+
+        <!-- Center: Desktop Nav Links (04. About & Explore is ACTIVE) -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#events" class="nav-link">01. Events</a>
+          <a href="index.html#domains" class="nav-link">02. Domains</a>
+          <a href="index.html#stats" class="nav-link">03. Stats</a>
+          <a href="about.html" class="nav-link active">
+            04. About & Explore <span class="text-[#FF4D00] text-[10px]">↗</span>
+          </a>
+        </nav>
+
+        <!-- Right: Action Buttons, CLI trigger, Paper/Ink Toggle, Mobile Menu -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5" title="Open Hardware CLI Terminal (Ctrl+K)">
+            <span class="text-[#FF4D00] font-bold">&gt;_</span>
+            <span class="hidden sm:inline">CLI</span>
+            <kbd class="hidden lg:inline-block bg-[var(--bg-surface)] text-[10px] px-1 py-0.5 border border-[var(--border-hairline)] font-mono">Ctrl+K</kbd>
+          </button>
+
+          <button id="theme-toggle-btn" type="button" class="btn-tactical" title="Toggle Paper and Ink Dark Mode">
+            <span class="theme-icon mr-1">◐</span>
+            <span class="theme-label hidden sm:inline">MODE: <span id="theme-name">PAPER</span></span>
+          </button>
+
+          <button id="mobile-menu-btn" type="button" class="md:hidden p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--ink-primary)]" aria-label="Toggle Navigation Menu">
+            <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="md:hidden hidden border-t border-[var(--border-hairline)] bg-[var(--bg-primary)] px-4 pt-3 pb-6 space-y-3">
+      <div class="text-[10px] font-mono text-[var(--ink-secondary)] pb-2 border-b border-[var(--border-hairline)] flex justify-between">
+        <span>LOC: ITM UNIVERSITY GWALIOR</span>
+        <span class="text-[#00D26A] font-bold">● ONLINE</span>
+      </div>
+      <div class="flex flex-col space-y-1 font-mono text-sm">
+        <a href="index.html" class="p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--ink-primary)]">Home</a>
+        <a href="index.html#events" class="p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--ink-primary)]">01. Events</a>
+        <a href="index.html#domains" class="p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--ink-primary)]">02. Domains</a>
+        <a href="index.html#stats" class="p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--ink-primary)]">03. Stats</a>
+        <a href="about.html" class="p-2 border border-[var(--border-hairline)] bg-[var(--bg-surface)] font-bold text-[#FF4D00]">04. About & Explore ↗</a>
+      </div>
+      <div class="pt-2 flex flex-col gap-2">
+        <button id="mobile-join-btn" class="btn-brutal-primary w-full text-center">JOIN THE CLUB / REGISTER</button>
+        <button id="mobile-cli-btn" class="btn-brutal-secondary w-full text-center">&gt;_ HARDWARE CLI</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- =========================================================================
+         1. ABOUT THE CODING CLUB (HERO / INTRO)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-surface)] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Breadcrumb & Coordinates Metadata -->
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-[var(--ink-secondary)] mb-6">
+          <a href="index.html" class="hover:text-[#FF4D00] transition-colors">INDEX</a>
+          <span>//</span>
+          <span class="text-[#FF4D00] font-bold">04. ABOUT & EXPLORE</span>
+          <span>//</span>
+          <span>GUILD CHARTER & COMMUNITY DOSSIER</span>
+          <span class="hidden sm:inline">|</span>
+          <span class="hidden sm:inline">EST. 2019 // ITM GWALIOR</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Left Column (8 cols): Bold Editorial Headline & Purpose -->
+          <div class="lg:col-span-8 space-y-6">
+            <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--ink-primary)] tracking-tight leading-[0.95]">
+              ENGINEERING CRAFTSMANSHIP AT ITM UNIVERSITY.
+            </h1>
+
+            <p class="font-editorial text-lg sm:text-xl text-[var(--ink-secondary)] leading-relaxed border-l-2 border-[#FF4D00] pl-4">
+              CodeCraft Society is the autonomous technical guild of <strong class="text-[var(--ink-primary)]">ITM University, Gwalior</strong>. Founded under the Department of Computer Science & Engineering, we cultivate elite algorithmic thinkers, systems builders, and open-source pioneers through peer-driven production code.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+              <button id="about-hero-join-btn" type="button" class="btn-brutal-primary">
+                JOIN THE SOCIETY / REGISTER ↗
+              </button>
+              <button id="about-hero-cli-btn" type="button" class="btn-tactical py-3 px-4">
+                <span class="text-[#FF4D00] font-bold">&gt;_</span> LAUNCH TERMINAL (Ctrl+K)
+              </button>
+              <a href="index.html" class="btn-brutal-secondary">
+                ← HOME BASE
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column (4 cols): Architectural Telemetry Card -->
+          <div class="lg:col-span-4 border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs space-y-4 font-mono text-xs">
+            <div class="flex justify-between items-center pb-3 border-b border-[var(--border-hairline)] font-bold">
+              <span class="text-[#FF4D00]">// CHARTER TELEMETRY</span>
+              <span class="text-[#00D26A]">ACTIVE GUILD</span>
+            </div>
+            
+            <div class="space-y-2 text-[var(--ink-secondary)]">
+              <div class="flex justify-between">
+                <span>HEADQUARTERS:</span>
+                <span class="font-bold text-[var(--ink-primary)]">SOET Lab 04, ITM Gwalior</span>
+              </div>
+              <div class="flex justify-between">
+                <span>DEPARTMENT:</span>
+                <span class="font-bold text-[var(--ink-primary)]">Computer Science & Eng</span>
+              </div>
+              <div class="flex justify-between">
+                <span>ESTABLISHED:</span>
+                <span class="font-bold text-[var(--ink-primary)]">August 2019</span>
+              </div>
+              <div class="flex justify-between">
+                <span>STUDENT COHORT:</span>
+                <span class="font-bold text-[#FF4D00]">500+ Engineers</span>
+              </div>
+              <div class="flex justify-between">
+                <span>COUNCIL CADRE:</span>
+                <span class="font-bold text-[var(--ink-primary)]">10 Technical Leads</span>
+              </div>
+              <div class="flex justify-between">
+                <span>ACCREDITATION:</span>
+                <span class="font-bold text-[#00D26A]">NAAC 'A' Accredited</span>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-[var(--border-hairline)] text-[10px] text-[var(--ink-secondary)] leading-normal">
+              THEME MOTTO: <span class="font-bold text-[var(--ink-primary)]">"CODE. CREATE. COLLABORATE."</span><br>
+              MISSION FOCUS: Algorithmic mastery, system architecture, open source, and national podium tournaments.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         2. VISION & MISSION (ARCHITECTURAL SPLIT BLOCK)
+         ========================================================================= -->
+    <section class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-[var(--bg-primary)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl pb-10">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold mb-2">
+            // SECTION 02 // GUIDING CONSTITUTION
+          </div>
+          <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl tracking-tight text-[var(--ink-primary)]">
+            VISION & CORE MISSION
+          </h2>
+          <p class="font-editorial text-sm sm:text-base text-[var(--ink-secondary)] mt-2">
+            Engineered to replace passive classroom lectures with production-first software development, peer code reviews, and high-stakes collegiate challenges.
+          </p>
+        </div>
+
+        <!-- 2-Column Split Block -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Column 1: Vision -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-8 corner-crosshairs flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold px-2 py-0.5">OUR VISION</span>
+                <span class="text-[#FF4D00] font-mono">PILLAR_01</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-[var(--ink-primary)]">
+                Transforming Collegiate Coders into World-Class Architects
+              </h3>
+              <p class="font-editorial text-sm text-[var(--ink-secondary)] leading-relaxed">
+                To establish ITM University, Gwalior as an epicenter of technological excellence, where students don't merely consume technology, but design, critique, and deploy mission-critical systems and research papers that rival industry-grade engineering standards worldwide.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-[var(--border-hairline)] font-mono text-xs space-y-2">
+              <div class="text-[#FF4D00] font-bold">// VISION BENCHMARKS:</div>
+              <ul class="space-y-1 text-[var(--ink-secondary)]">
+                <li>• Top 10 National ICPC Regional Representation</li>
+                <li>• Student-authored packages used by global dev communities</li>
+                <li>• 100% Core Council placements in premier R&D product companies</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 2: Mission -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-8 corner-crosshairs flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#FF4D00] text-white font-bold px-2 py-0.5">OUR MISSION</span>
+                <span class="text-[#FF4D00] font-mono">PILLAR_02</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-[var(--ink-primary)]">
+                Hands-on Sprints, Open Mentorship & Rigorous Peer Review
+              </h3>
+              <p class="font-editorial text-sm text-[var(--ink-secondary)] leading-relaxed">
+                To empower 500+ undergraduate student coders across all academic years with dedicated lab compute, continuous hackathons, open-source maintainership, and senior-to-freshman mentorship pipelines. Every member writes tested, documented, and production-ready code.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-[var(--border-hairline)] font-mono text-xs space-y-2">
+              <div class="text-[#00D26A] font-bold">// ETHOS & VALUES:</div>
+              <ul class="space-y-1 text-[var(--ink-secondary)]">
+                <li>• <strong>Code</strong>: Pragmatic, zero-bloat, benchmarked implementation.</li>
+                <li>• <strong>Create</strong>: Original student IP solving real campus problems.</li>
+                <li>• <strong>Collaborate</strong>: Transparent git reviews, shared knowledge, mutual growth.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. EXPLORE HUB (INTERACTIVE TABBED EXPLORER)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-surface)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="pb-8 border-b border-[var(--border-hairline)] flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold mb-1">
+              // SECTION 03 // GUILD EXPLORER
+            </div>
+            <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--ink-primary)]">
+              INTERACTIVE EXPLORE HUB
+            </h2>
+          </div>
+          <span class="font-mono text-xs text-[var(--ink-secondary)]">
+            CLICK TABS TO EXPLORE CURATED ARCHIVES
+          </span>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex gap-2 overflow-x-auto py-6 border-b border-[var(--border-hairline)] no-scrollbar">
+          <button class="explore-tab active" data-target-pane="pane-projects">STUDENT PROJECTS</button>
+          <button class="explore-tab" data-target-pane="pane-hackathons">HACKATHONS & CONTESTS</button>
+          <button class="explore-tab" data-target-pane="pane-workshops">WORKSHOPS & SESSIONS</button>
+          <button class="explore-tab" data-target-pane="pane-opensource">OPEN-SOURCE INITIATIVES</button>
+          <button class="explore-tab" data-target-pane="pane-resources">LEARNING ROADMAPS</button>
+          <button class="explore-tab" data-target-pane="pane-highlights">PAST EVENT HIGHLIGHTS</button>
+        </div>
+
+        <!-- Tab Panes Container -->
+        <div class="mt-8">
+          
+          <!-- Pane 1: Student Projects -->
+          <div id="pane-projects" class="explore-pane space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between">
+                <div>
+                  <span class="font-mono text-[10px] text-[#FF4D00] font-bold uppercase">FLAGSHIP INFRA // 2026</span>
+                  <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-2">itm-campus-mesh</h3>
+                  <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                    Decentralized university transit and attendance tracking engine. Built with Go microservices, Redis pub/sub, WebSockets, and Flutter frontend.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--border-hairline)] mt-4 font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+                  <span>Go / Flutter / Redis</span>
+                  <span class="text-[#00D26A] font-bold">● Production</span>
+                </div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between">
+                <div>
+                  <span class="font-mono text-[10px] text-[#FF4D00] font-bold uppercase">AI VISION // 2025</span>
+                  <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-2">neural-gwalior-vision</h3>
+                  <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                    Historic stone monument crack detection and facade degradation monitoring model utilizing YOLOv8 and PyTorch on Gwalior Fort datasets.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--border-hairline)] mt-4 font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+                  <span>PyTorch / CUDA / FastAPI</span>
+                  <span class="text-[#00D26A] font-bold">● Published Paper</span>
+                </div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between">
+                <div>
+                  <span class="font-mono text-[10px] text-[#FF4D00] font-bold uppercase">CLI UTILITY // 2025</span>
+                  <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-2">codecraft-cli</h3>
+                  <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                    Ultra-fast terminal scaffolding tool written in Rust. Automatically parses Codeforces test cases and benchmarks C++ solutions locally in milliseconds.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--border-hairline)] mt-4 font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+                  <span>Rust / Crates.io</span>
+                  <span class="text-[#00D26A] font-bold">● 640+ Stars</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Pane 2: Hackathons & Competitions -->
+          <div id="pane-hackathons" class="explore-pane hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="font-mono text-xs text-[#FF4D00] font-bold">[ANNUAL FLAGSHIP]</span>
+                <h3 class="font-display font-bold text-2xl text-[var(--ink-primary)] mt-2">HackGwalior 48-Hour Sprint</h3>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                  The marquee collegiate hackathon of Central India hosted at Aryabhatta Central Hall. Attracting 120+ teams nationwide to build high-impact software across AI Agents, Web3 Infrastructure, and Agritech.
+                </p>
+                <div class="font-mono text-xs text-[var(--ink-secondary)] pt-4 border-t border-[var(--border-hairline)] mt-4 flex justify-between">
+                  <span>CASH POOL: ₹50,000</span>
+                  <span class="font-bold text-[var(--ink-primary)]">NEXT: APR 25-27, 2026</span>
+                </div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="font-mono text-xs text-[#FF4D00] font-bold">[SPEED ARENA]</span>
+                <h3 class="font-display font-bold text-2xl text-[var(--ink-primary)] mt-2">ByteBattle Speed Coding Cup</h3>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                  High-speed algorithmic duel modeled on ICPC World Finals standards. 6 complex algorithmic problems in 180 minutes with real-time scoreboards and penalty calculation.
+                </p>
+                <div class="font-mono text-xs text-[var(--ink-secondary)] pt-4 border-t border-[var(--border-hairline)] mt-4 flex justify-between">
+                  <span>FORMAT: Offline Lab 04</span>
+                  <span class="font-bold text-[var(--ink-primary)]">NEXT: APR 12, 2026</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Pane 3: Workshops & Tech Sessions -->
+          <div id="pane-workshops" class="explore-pane hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+              
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">WORKSHOP_01</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-2">Docker, Go & gRPC Systems</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  Building microservices from ground up with protocol buffers, concurrency in Go, and multi-stage container optimization.
+                </p>
+                <div class="mt-4 pt-3 border-t border-[var(--border-hairline)] text-[10px] text-[var(--ink-secondary)]">
+                  INSTRUCTOR: Arjun Sharma // 4 Hours Live Build
+                </div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">WORKSHOP_02</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-2">LLM Agents & Quantization</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  Fine-tuning open weights on CUDA servers, constructing autonomous function-calling pipelines, and vector databases.
+                </p>
+                <div class="mt-4 pt-3 border-t border-[var(--border-hairline)] text-[10px] text-[var(--ink-secondary)]">
+                  INSTRUCTOR: Priya Verma // GPU Lab Hands-on
+                </div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">WORKSHOP_03</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-2">Reverse Eng & Ghidra CTF</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  Decompiling ELF binaries, inspecting heap memory corruption, bypassing protections, and patching malware samples.
+                </p>
+                <div class="mt-4 pt-3 border-t border-[var(--border-hairline)] text-[10px] text-[var(--ink-secondary)]">
+                  INSTRUCTOR: Kavita Saxena // Security Lab
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Pane 4: Open-Source Initiatives -->
+          <div id="pane-opensource" class="explore-pane hidden space-y-6">
+            <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-8">
+              <div class="max-w-2xl space-y-3">
+                <span class="font-mono text-xs text-[#FF4D00] font-bold">// PUBLIC CODE CONTRIBUTIONS</span>
+                <h3 class="font-display font-bold text-2xl text-[var(--ink-primary)]">
+                  CodeCraft Open Source Fellowship
+                </h3>
+                <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
+                  We believe in learning in public. Our members contribute to major upstream repositories including Linux kernel documentation, Rust CLI crates, React ecosystems, and Apache projects.
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 font-mono text-xs">
+                  <div>
+                    <span class="text-[10px] text-[var(--ink-secondary)] block">MERGED PRs</span>
+                    <span class="font-bold text-xl text-[var(--ink-primary)]">220+</span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-[var(--ink-secondary)] block">GSoC SCHOLARS</span>
+                    <span class="font-bold text-xl text-[var(--ink-primary)]">2</span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-[var(--ink-secondary)] block">GITHUB STARS</span>
+                    <span class="font-bold text-xl text-[var(--ink-primary)]">1,800+</span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-[var(--ink-secondary)] block">CRATES SHIPPED</span>
+                    <span class="font-bold text-xl text-[#FF4D00]">14</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: Learning Resources & Roadmaps -->
+          <div id="pane-resources" class="explore-pane hidden space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+              
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-5 space-y-2">
+                <span class="text-[#FF4D00] font-bold">ROADMAP 01</span>
+                <div class="font-display font-bold text-base text-[var(--ink-primary)]">DSA & ICPC Specialist</div>
+                <p class="font-editorial text-[11px] text-[var(--ink-secondary)]">
+                  450 curated algorithmic problems. From two pointers and bitmasking to Tree DP, Centroid Decomposition, and Network Flows.
+                </p>
+                <div class="pt-2 text-[10px] text-[#00D26A] font-bold">STATUS: CURATED (v4.2)</div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-5 space-y-2">
+                <span class="text-[#FF4D00] font-bold">ROADMAP 02</span>
+                <div class="font-display font-bold text-base text-[var(--ink-primary)]">Full-Stack Systems Arch</div>
+                <p class="font-editorial text-[11px] text-[var(--ink-secondary)]">
+                  Next.js 15, TypeScript, WebSockets, PostgreSQL indexing, Redis caching, and Docker orchestration pipelines.
+                </p>
+                <div class="pt-2 text-[10px] text-[#00D26A] font-bold">STATUS: CURATED (v3.0)</div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-5 space-y-2">
+                <span class="text-[#FF4D00] font-bold">ROADMAP 03</span>
+                <div class="font-display font-bold text-base text-[var(--ink-primary)]">Applied AI & Neural Nets</div>
+                <p class="font-editorial text-[11px] text-[var(--ink-secondary)]">
+                  PyTorch tensor operations, CUDA fundamentals, Transformer architectures, embeddings search, and Agent tool integration.
+                </p>
+                <div class="pt-2 text-[10px] text-[#00D26A] font-bold">STATUS: CURATED (v2.8)</div>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-5 space-y-2">
+                <span class="text-[#FF4D00] font-bold">ROADMAP 04</span>
+                <div class="font-display font-bold text-base text-[var(--ink-primary)]">Offensive Cybersecurity</div>
+                <p class="font-editorial text-[11px] text-[var(--ink-secondary)]">
+                  Linux internals, Network packet crafting with Scapy, Binary analysis with Ghidra, Web vulnerabilities (OWASP Top 10).
+                </p>
+                <div class="pt-2 text-[10px] text-[#00D26A] font-bold">STATUS: CURATED (v3.1)</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Pane 6: Past Event Highlights -->
+          <div id="pane-highlights" class="explore-pane hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+              
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">OCT 2025 HIGHLIGHT</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-1">HackGwalior '25 Grand Finale</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  500+ participants, 48 hours of uninterrupted hacking, 38 projects deployed live, and ₹50,000 cash prizes disbursed to collegiate winners.
+                </p>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">NOV 2025 HIGHLIGHT</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-1">ICPC Regional Qualifiers</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  4 teams from CodeCraft Society cleared preliminary rounds to represent ITM University Gwalior at the Asia-West Regional Contest.
+                </p>
+              </div>
+
+              <div class="border border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6">
+                <span class="text-[#FF4D00] font-bold">JAN 2026 HIGHLIGHT</span>
+                <h4 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-1">Annual Open Source Sprint</h4>
+                <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2">
+                  Week-long community hackathon resulting in 42 merged pull requests into public developer infrastructure repos.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. ACHIEVEMENTS & MILESTONES (SWISS TIMELINE / LEDGER)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-primary)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl pb-10">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold mb-1">
+            // SECTION 04 // HISTORICAL LEDGER
+          </div>
+          <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--ink-primary)]">
+            ACHIEVEMENTS & MILESTONES
+          </h2>
+          <p class="font-editorial text-sm sm:text-base text-[var(--ink-secondary)] mt-2">
+            A chronological timeline ledger tracking our evolution from a grassroots lab initiative to a nationally-recognized technical society.
+          </p>
+        </div>
+
+        <!-- Structured Timeline Ledger (2022 -> 2026) -->
+        <div class="space-y-8 mt-6">
+          
+          <!-- 2026 Milestone -->
+          <div class="timeline-item space-y-2">
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span class="bg-[#FF4D00] text-white font-bold px-2 py-0.5">2026</span>
+              <span class="font-bold text-[var(--ink-primary)]">CURRENT SPRINT CYCLE // REGIONAL DOMINANCE</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+              1st Place National CTF Defense & 4x ICPC Regional Qualifiers
+            </h3>
+            <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] max-w-3xl leading-relaxed">
+              CodeCraft Red Team captured 1st podium in the National Cyber Defense Challenge. 4 collegiate squads qualified for the ICPC Asia West Regional Finals. Deployed Campus Mesh v3.2 across the department.
+            </p>
+          </div>
+
+          <!-- 2025 Milestone -->
+          <div class="timeline-item space-y-2">
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span class="bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold px-2 py-0.5">2025</span>
+              <span class="font-bold text-[var(--ink-primary)]">NATIONAL ACCLAIM & GSOC RECOGNITION</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+              Smart India Hackathon (SIH) 1st Runner-Up & 2 GSoC Scholars
+            </h3>
+            <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] max-w-3xl leading-relaxed">
+              Secured 1st Runner-Up at Smart India Hackathon (Ministry of Education, ₹75,000 cash grant). 2 core council mentors chosen for Google Summer of Code (GSoC) working on Linux kernel and compiler utilities. Successfully hosted HackGwalior 2025.
+            </p>
+          </div>
+
+          <!-- 2024 Milestone -->
+          <div class="timeline-item space-y-2">
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span class="bg-[var(--bg-subtle)] text-[var(--ink-primary)] font-bold px-2 py-0.5 border border-[var(--border-hairline)]">2024</span>
+              <span class="font-bold text-[var(--ink-primary)]">ALGORITHMIC SPECIALIZATION & INDUSTRY ALLIANCES</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+              4 Candidate Masters & Academic Guild Certification
+            </h3>
+            <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] max-w-3xl leading-relaxed">
+              Achieved milestone of 4 student members crossing Codeforces Candidate Master rating (1900+). Partnered with AWS Academy and Red Hat to deliver cloud native container training to 200+ engineering undergraduates.
+            </p>
+          </div>
+
+          <!-- 2023 Milestone -->
+          <div class="timeline-item space-y-2">
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span class="bg-[var(--bg-subtle)] text-[var(--ink-primary)] font-bold px-2 py-0.5 border border-[var(--border-hairline)]">2023</span>
+              <span class="font-bold text-[var(--ink-primary)]">INTER-COLLEGIATE TRIUMPHS & 100% PLACEMENT CADRE</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+              Inter-University Hackathon Champions Across 28 Colleges
+            </h3>
+            <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] max-w-3xl leading-relaxed">
+              Swept 1st and 3rd place awards across Central Zone Collegiate Hackathons. 100% of graduating Core Council members secured premium software development engineering internships.
+            </p>
+          </div>
+
+          <!-- 2022 Milestone -->
+          <div class="timeline-item space-y-2">
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span class="bg-[var(--bg-subtle)] text-[var(--ink-primary)] font-bold px-2 py-0.5 border border-[var(--border-hairline)]">2022</span>
+              <span class="font-bold text-[var(--ink-primary)]">FOUNDATION & LAB COMPUTE DEDICATION</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+              Official Charter Ratification & Dedicated Hardware Lab
+            </h3>
+            <p class="font-editorial text-xs sm:text-sm text-[var(--ink-secondary)] max-w-3xl leading-relaxed">
+              Charter formally ratified by Department of Computer Science & Engineering, ITM University Gwalior. Inaugurated dedicated high-performance student lab server clusters for weekly internal contests.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. OUR COMMUNITY (COORDINATORS, MENTORS & CORE TEAM)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-surface)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl pb-10">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold mb-1">
+            // SECTION 05 // EXECUTIVE BOARD & MENTORSHIP
+          </div>
+          <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--ink-primary)]">
+            COUNCIL & CORE DIRECTORS
+          </h2>
+          <p class="font-editorial text-sm sm:text-base text-[var(--ink-secondary)] mt-2">
+            Guided by distinguished faculty leadership from the Department of Computer Science & Engineering and operated by passionate student engineers.
+          </p>
+        </div>
+
+        <!-- 10 Brutalist Profile Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          
+          <!-- Faculty 1 -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[#FF4D00] text-white font-bold font-mono text-xs">RK</span>
+                <span class="text-[#FF4D00] font-bold">FACULTY CHIEF</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Dr. R. K. Sharma</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">Professor & Head, CSE Dept</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Specializes in Distributed Systems, High-Performance Computing, and Parallel Architectures. 20+ years in academic research.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] text-[var(--ink-secondary)]">
+              <div>SPECIALTY: Distributed Systems</div>
+              <div class="text-[#FF4D00] mt-1">advisor-cse@itmuniversity.ac.in</div>
+            </div>
+          </div>
+
+          <!-- Faculty 2 -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold font-mono text-xs">SC</span>
+                <span class="text-[var(--ink-secondary)] font-bold">CO-ADVISOR</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Prof. Sunita Chauhan</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">Associate Professor, CSE Dept</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Expert in Advanced Graph Theory, Algorithmic Complexity, and Theoretical Computer Science curricula.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] text-[var(--ink-secondary)]">
+              <div>SPECIALTY: Algorithms & Complexity</div>
+              <div class="text-[#FF4D00] mt-1">sunita.cse@itmuniversity.ac.in</div>
+            </div>
+          </div>
+
+          <!-- Student Lead 1: President -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[#FF4D00] text-white font-bold font-mono text-xs">AS</span>
+                <span class="text-[#FF4D00] font-bold">PRESIDENT</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Arjun Sharma</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">4th Year B.Tech CSE</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Full-stack systems architect, author of campus microservices, and lead organizer for HackGwalior.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">gh: @arjun-sharma</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/arjun</a>
+            </div>
+          </div>
+
+          <!-- Student Lead 2: Vice President -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold font-mono text-xs">PV</span>
+                <span class="text-[#FF4D00] font-bold">VICE PRESIDENT</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Priya Verma</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">3rd Year B.Tech AI-ML</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Researcher in neural agentic networks, fine-tuning LLMs, and computer vision architectures.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">gh: @priya-ml</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/priya</a>
+            </div>
+          </div>
+
+          <!-- Student Lead 3: Systems -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[var(--bg-subtle)] text-[var(--ink-primary)] border border-[var(--border-hairline)] font-bold font-mono text-xs">DR</span>
+                <span class="text-[var(--ink-secondary)] font-bold">SYSTEMS LEAD</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Devendra Rajput</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">4th Year B.Tech CSE</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Google Summer of Code (GSoC) Scholar. Author of codecraft-cli and upstream Rust contributor.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">gh: @devendra-rs</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/devendra</a>
+            </div>
+          </div>
+
+          <!-- Student Lead 4: Competitive Programming -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[var(--bg-subtle)] text-[var(--ink-primary)] border border-[var(--border-hairline)] font-bold font-mono text-xs">RG</span>
+                <span class="text-[#FF4D00] font-bold">CP LEAD</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Rohan Gupta</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">3rd Year B.Tech CSE</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Codeforces Candidate Master (1940 peak), ICPC Regional Finalist, and ByteBattle contest designer.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">cf: @rohan_g</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/rohang</a>
+            </div>
+          </div>
+
+          <!-- Student Lead 5: Web Systems -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[var(--bg-subtle)] text-[var(--ink-primary)] border border-[var(--border-hairline)] font-bold font-mono text-xs">NP</span>
+                <span class="text-[var(--ink-secondary)] font-bold">WEB LEAD</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Neha Patel</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">3rd Year B.Tech IT</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Specialist in Next.js 15, reactive GraphQL backends, TypeScript type-safety, and UI accessibility.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">gh: @neha-dev</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/nehap</a>
+            </div>
+          </div>
+
+          <!-- Student Lead 6: Cybersecurity -->
+          <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 corner-crosshairs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="w-8 h-8 flex items-center justify-center bg-[var(--bg-subtle)] text-[var(--ink-primary)] border border-[var(--border-hairline)] font-bold font-mono text-xs">KS</span>
+                <span class="text-[#FF4D00] font-bold">CYBER LEAD</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-[var(--ink-primary)] mt-3">Kavita Saxena</h3>
+              <div class="font-mono text-[11px] text-[var(--ink-secondary)]">4th Year B.Tech CSE</div>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Certified Ethical Hacker (CEH), binary exploit researcher, and captain of the CodeCraft CTF defense team.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-[var(--border-hairline)] font-mono text-[11px] flex justify-between text-[var(--ink-secondary)]">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">gh: @kavita-sec</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00]">li: /in/kavita</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. PROJECT / EVENT SHOWCASE (WITH FILTERABLE TAGS)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-primary)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-hairline)] gap-6">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold mb-1">
+              // SECTION 06 // PRODUCTION CATALOG
+            </div>
+            <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--ink-primary)]">
+              PROJECT & EVENT SHOWCASE
+            </h2>
+            <p class="font-editorial text-sm sm:text-base text-[var(--ink-secondary)] mt-2 max-w-xl">
+              Concrete implementations and landmark tournaments created, maintained, and operated by CodeCraft Society engineers.
+            </p>
+          </div>
+
+          <!-- Showcase Filter Buttons -->
+          <div class="flex flex-wrap gap-1.5 self-start md:self-end">
+            <button class="showcase-filter-btn active" data-showcase-filter="all">ALL (6)</button>
+            <button class="showcase-filter-btn" data-showcase-filter="web">WEB/SYSTEMS</button>
+            <button class="showcase-filter-btn" data-showcase-filter="ai">AI/ML</button>
+            <button class="showcase-filter-btn" data-showcase-filter="oss">OPEN SOURCE</button>
+            <button class="showcase-filter-btn" data-showcase-filter="events">PAST EVENTS</button>
+          </div>
+        </div>
+
+        <!-- 6 Standout Cards Grid -->
+        <div id="showcase-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10">
+          
+          <!-- Card 1 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="web oss">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#FF4D00] text-white font-bold px-2 py-0.5">WEB/SYSTEMS</span>
+                <span class="text-[#00D26A] font-bold">● V3.2 LIVE</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">itm-campus-mesh</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Campus-wide decentralized microservice handling real-time transit bus geolocation, automated lecture hall pass issuance, and event access control.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Go</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">WebSockets</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">PostgreSQL</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Flutter</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">IMPACT: 3,200 Daily Hits</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#FF4D00] font-bold hover:underline">REPO ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="ai">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold px-2 py-0.5">AI/ML</span>
+                <span class="text-[#00D26A] font-bold">● RESEARCH PAPER</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">neural-gwalior-vision</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Automated facade anomaly detection and stone weathering analysis model fine-tuned on historical monument datasets around Gwalior fortresses.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">PyTorch</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">YOLOv8</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">CUDA</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">FastAPI</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">ACCURACY: 94.6% mAP</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#FF4D00] font-bold hover:underline">DETAILS ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="oss web">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[var(--bg-subtle)] text-[var(--ink-primary)] font-bold px-2 py-0.5 border border-[var(--border-hairline)]">OPEN SOURCE</span>
+                <span class="text-[#FF4D00] font-bold">● CRATES.IO</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">codecraft-cli</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Blazing-fast command-line interface in Rust to scaffold student projects, fetch competitive programming samples, and benchmark CPU time.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Rust</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Cargo</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Clap</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Tokio</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">DOWNLOADS: 8,400+</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#FF4D00] font-bold hover:underline">CRATE ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="web">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#0A0A0A] text-white dark:bg-white dark:text-black font-bold px-2 py-0.5">WEB/SYSTEMS</span>
+                <span class="text-[#00D26A] font-bold">● LAB TOOL</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">itm-vuln-sentinel</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                Internal network auditing suite and automated vulnerability scanner used to train sophomore engineering students on offensive CTF defenses.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Python</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Scapy</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">Docker</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">SQLite</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">AUDITS: 14 Labs</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#FF4D00] font-bold hover:underline">DETAILS ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="events">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#FF4D00] text-white font-bold px-2 py-0.5">PAST EVENTS</span>
+                <span class="text-[#00D26A] font-bold">● COMPLETED</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">ByteBattle '25 Regional Arena</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                High-octane 3-hour speed algorithmic tournament hosted in SOET Computer Labs. 150 live competitors, automated ICPC judge systems, and zero downtime.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">ICPC Rules</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">150 Coders</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">₹15k Prizes</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">OCTOBER 2025</span>
+              <a href="index.html#events" class="text-[#FF4D00] font-bold hover:underline">2026 EDITION ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="showcase-card border-2 border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 corner-crosshairs flex flex-col justify-between" data-showcase-category="events">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs">
+                <span class="bg-[#FF4D00] text-white font-bold px-2 py-0.5">PAST EVENTS</span>
+                <span class="text-[#00D26A] font-bold">● COMPLETED</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)] mt-4">HackGwalior 2025 National Sprint</h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] mt-2 leading-relaxed">
+                48-hour continuous national prototyping hackathon. 120 teams from 18 states, judged by senior engineering leads from AWS, Razorpay, and Microsoft.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-3 font-mono text-[10px]">
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">120 Teams</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">48 Hours</span>
+                <span class="bg-[var(--bg-subtle)] border border-[var(--border-hairline)] px-2 py-0.5">₹50k Cash Pool</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-[var(--border-hairline)] mt-6 flex justify-between items-center font-mono text-xs">
+              <span class="text-[var(--ink-secondary)]">APRIL 2025</span>
+              <a href="index.html#events" class="text-[#FF4D00] font-bold hover:underline">2026 EDITION ↗</a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. CONTACT & COMMUNITY + FOOTER
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 border-b border-[var(--border-hairline)] bg-[var(--bg-surface)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Card (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="font-mono text-xs uppercase tracking-widest text-[#FF4D00] font-bold">
+              // SECTION 07 // DIRECTORY & ENGAGEMENT
+            </div>
+            
+            <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--ink-primary)] tracking-tight">
+              COMMUNITY HEADQUARTERS & CONTACT
+            </h2>
+
+            <p class="font-editorial text-sm sm:text-base text-[var(--ink-secondary)] leading-relaxed">
+              We welcome prospective engineering members, academic collaborators, hackathon sponsors, and guest tech speakers. Visit our physical lab space or reach us on community platforms.
+            </p>
+
+            <div class="border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-6 space-y-3 font-mono text-xs">
+              <div class="font-bold text-[var(--ink-primary)]">// OFFICIAL CAMPUS DESK:</div>
+              <div>School of Engineering & Technology (SOET)</div>
+              <div>Department of Computer Science & Engineering, Lab 04</div>
+              <div>ITM University, NH-44 Bypass, Turari, Jhansi Road</div>
+              <div>Gwalior, Madhya Pradesh — 474001, India</div>
+              <div class="pt-2 text-[#FF4D00] font-bold">Official Email: codecraft@itmuniversity.ac.in</div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="contact-join-btn" type="button" class="btn-brutal-primary">
+                APPLY FOR MEMBERSHIP ↗
+              </button>
+              <a href="index.html" class="btn-brutal-secondary">
+                ← RETURN TO HOME (index.html)
+              </a>
+            </div>
+          </div>
+
+          <!-- Community Platforms (5 cols) -->
+          <div class="lg:col-span-5 border-2 border-[var(--border-hairline)] bg-[var(--bg-primary)] p-8 corner-crosshairs flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-[var(--border-hairline)] font-mono text-xs font-bold">
+                <span class="text-[#FF4D00]">// SOCIAL NETWORKS</span>
+                <span class="text-[#00D26A]">CHANNELS LIVE</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-[var(--ink-primary)]">
+                Connect Across Guild Platforms
+              </h3>
+              <p class="font-editorial text-xs text-[var(--ink-secondary)] leading-relaxed">
+                Stay updated with weekly problem sets, sprint hackathons, workshop recordings, and technical internships.
+              </p>
+            </div>
+
+            <div class="space-y-2 font-mono text-xs">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
+                <span>GITHUB ORGANIZATION</span>
+                <span class="text-[10px]">@codecraft-itm ↗</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
+                <span>LINKEDIN GUILD PAGE</span>
+                <span class="text-[10px]">/company/codecraft-itm ↗</span>
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
+                <span>DISCORD SERVER</span>
+                <span class="text-[10px]">#codecraft-arena ↗</span>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
+                <span>INSTAGRAM FEED</span>
+                <span class="text-[10px]">@codecraft_itm ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       ARCHITECTURAL FOOTER
+       ========================================================================= -->
+  <footer class="bg-[var(--bg-surface)] border-t border-[var(--border-hairline)] pt-16 pb-12 font-editorial">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[var(--border-hairline)]">
+        
+        <!-- Col 1 & 2: Brand & Address -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="h-9 border border-[var(--border-hairline)] flex items-center font-mono text-xs font-black bg-white dark:bg-[#141414]">
+              <div class="bg-[#0A0A0A] text-[#F4F3EF] px-2 py-1 flex items-center gap-1 border-r border-[#333333]">
+                <span>CO</span><span class="text-[#FF4D00]">DE</span>
+              </div>
+              <div class="bg-white dark:bg-[#1C1C1C] text-[var(--ink-primary)] px-2 py-1">
+                <span>CRAFT &lt;/&gt;</span>
+              </div>
+            </div>
+            <span class="bg-[#FF4D00] text-white text-[9px] font-mono font-bold px-1.5 py-0.5 border border-black uppercase">[ITM UNIVERSITY]</span>
+          </div>
+
+          <p class="font-editorial text-xs text-[var(--ink-secondary)] leading-relaxed max-w-sm">
+            CodeCraft Society is the student-governed computer science and software development guild of ITM University, Gwalior.
+          </p>
+
+          <div class="font-mono text-xs text-[var(--ink-secondary)] space-y-1 pt-2">
+            <div class="font-bold text-[var(--ink-primary)]">LOCATION & CONTACT:</div>
+            <div>School of Engineering & Technology (SOET)</div>
+            <div>Department of Computer Science & Engineering</div>
+            <div>ITM University, NH-44 Bypass, Turari, Jhansi Road</div>
+            <div>Gwalior, Madhya Pradesh — 474001, India</div>
+          </div>
+        </div>
+
+        <!-- Col 3: Directory Links -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="font-bold uppercase tracking-wider text-[var(--ink-primary)] pb-1 border-b border-[var(--border-hairline)]">
+            DIRECTORY
+          </div>
+          <ul class="space-y-2 text-[var(--ink-secondary)]">
+            <li><a href="index.html" class="hover:text-[#FF4D00] transition-colors">Home Base</a></li>
+            <li><a href="index.html#events" class="hover:text-[#FF4D00] transition-colors">01. Calendar & Events</a></li>
+            <li><a href="index.html#domains" class="hover:text-[#FF4D00] transition-colors">02. Technical Domains</a></li>
+            <li><a href="index.html#stats" class="hover:text-[#FF4D00] transition-colors">03. Stats & Telemetry</a></li>
+            <li><a href="about.html" class="hover:text-[#FF4D00] font-bold transition-colors">04. About & Explore ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Community Links -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="font-bold uppercase tracking-wider text-[var(--ink-primary)] pb-1 border-b border-[var(--border-hairline)]">
+            COMMUNITY & CODE
+          </div>
+          <ul class="space-y-2 text-[var(--ink-secondary)]">
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">GitHub Org ↗</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">LinkedIn Page ↗</a></li>
+            <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">Discord Server ↗</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">Instagram Feed ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Telemetry & Terminal Quick Action -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="font-bold uppercase tracking-wider text-[var(--ink-primary)] pb-1 border-b border-[var(--border-hairline)]">
+            DIAGNOSTICS
+          </div>
+          <div class="p-3 bg-[var(--bg-subtle)] border border-[var(--border-hairline)] space-y-1.5 text-[11px] text-[var(--ink-secondary)]">
+            <div>PORTAL: <span class="text-[var(--ink-primary)] font-bold">About & Explorer</span></div>
+            <div>STATUS: <span class="text-[#00D26A] font-bold">● ONLINE</span></div>
+            <div>TIME: <span id="footer-utc-clock">IST (UTC+5:30)</span></div>
+          </div>
+          <button id="footer-cli-btn" class="btn-tactical w-full text-center">
+            &gt;_ LAUNCH CLI TERMINAL
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[var(--ink-secondary)]">
+        <div>
+          &copy; 2026 CodeCraft Society — ITM University, Gwalior. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-[#FF4D00] transition-colors">← RETURN HOME</a>
+          <button id="back-to-top-btn" class="hover:text-[#FF4D00] font-bold uppercase transition-colors">
+            ↑ BACK TO TOP
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS (REGISTRATION & HARDWARE CLI)
+       ========================================================================= -->
+  
+  <!-- Registration Modal -->
+  <div id="registration-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      
+      <div class="flex items-center justify-between p-4 sm:p-5 border-b-2 border-[var(--border-hairline)] bg-[var(--bg-subtle)]">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-[#FF4D00] inline-block"></span>
+          <h3 id="modal-title" class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--ink-primary)]">
+            REGISTRATION GATEWAY // CODECRAFT
+          </h3>
+        </div>
+        <button id="close-reg-modal-btn" class="p-1.5 border border-[var(--border-hairline)] hover:bg-[#FF4D00] hover:text-white transition-colors" aria-label="Close Registration Modal">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="registration-form-container" class="p-6">
+        <p class="font-editorial text-xs text-[var(--ink-secondary)] mb-5">
+          Enter your official ITM University student credentials to apply for general club membership or select an upcoming 2026 sprint.
+        </p>
+
+        <form id="registration-form" class="space-y-4">
+          <div>
+            <label for="reg-name" class="label-brutal">FULL NAME *</label>
+            <input type="text" id="reg-name" required placeholder="e.g. Dhruv Singh" class="input-brutal">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="reg-roll" class="label-brutal">STUDENT ROLL NO / PRN *</label>
+              <input type="text" id="reg-roll" required placeholder="e.g. 220010101" class="input-brutal">
+            </div>
+            <div>
+              <label for="reg-email" class="label-brutal">UNIVERSITY EMAIL *</label>
+              <input type="email" id="reg-email" required placeholder="name@itmuniversity.ac.in" class="input-brutal">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="reg-branch" class="label-brutal">BRANCH / MAJOR *</label>
+              <select id="reg-branch" required class="input-brutal bg-[var(--bg-surface)]">
+                <option value="CSE">Computer Science & Eng (CSE)</option>
+                <option value="AI-ML">CSE - Artificial Intelligence & ML</option>
+                <option value="DS">CSE - Data Science</option>
+                <option value="IT">Information Technology (IT)</option>
+                <option value="ECE">Electronics & Comm (ECE)</option>
+                <option value="OTHER">Other Engineering Major</option>
+              </select>
+            </div>
+            <div>
+              <label for="reg-year" class="label-brutal">ACADEMIC YEAR *</label>
+              <select id="reg-year" required class="input-brutal bg-[var(--bg-surface)]">
+                <option value="1st Year">1st Year (Freshman)</option>
+                <option value="2nd Year" selected>2nd Year (Sophomore)</option>
+                <option value="3rd Year">3rd Year (Junior)</option>
+                <option value="4th Year">4th Year (Senior)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="reg-target" class="label-brutal">SELECT INTAKE OR EVENT *</label>
+            <select id="reg-target" required class="input-brutal bg-[var(--bg-surface)]">
+              <option value="General Society Intake (Cohort 2026)" selected>General Society Intake (Cohort 2026)</option>
+              <option value="ByteBattle 2026: Speed Algorithmic Arena">ByteBattle 2026: Speed Algorithmic Arena (Apr 12)</option>
+              <option value="HackGwalior '26: 48-Hour Prototyping Sprint">HackGwalior '26: 48-Hour Prototyping Sprint (Apr 25-27)</option>
+              <option value="Distributed Systems & Cloud Microservices">Distributed Systems & Cloud Microservices Workshop (May 04)</option>
+              <option value="DSA & Competitive Specialist Bootcamp">DSA & Competitive Specialist Bootcamp (May 15-22)</option>
+              <option value="The Bug Hunt: Reverse Eng & CTF Defense">The Bug Hunt: Reverse Eng & CTF Defense (Jun 02)</option>
+              <option value="Agentic AI & Neural Systems Masterclass">Agentic AI & Neural Systems Masterclass (Jun 18)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="reg-phone" class="label-brutal">WHATSAPP / MOBILE NUMBER *</label>
+            <input type="tel" id="reg-phone" required placeholder="+91 98765 43210" class="input-brutal">
+          </div>
+
+          <div class="pt-3">
+            <button type="submit" class="btn-brutal-primary w-full text-center">
+              GENERATE DIGITAL CREDENTIAL PASS ->
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div id="registration-ticket-state" class="hidden p-6">
+        <div class="ticket-pass p-6 mb-6">
+          <div class="flex items-center justify-between pb-4 border-b border-dashed border-[var(--border-hairline)] font-mono text-xs">
+            <div class="flex items-center gap-1.5 font-bold">
+              <span class="text-[#FF4D00]">CODECRAFT</span>
+              <span>// ITM GWALIOR</span>
+            </div>
+            <span class="bg-[#00D26A] text-black font-bold px-1.5 py-0.5 text-[9px]">CONFIRMED</span>
+          </div>
+
+          <div class="my-5 space-y-3 font-mono">
+            <div>
+              <span class="text-[10px] text-[var(--ink-secondary)] block">PASS HOLDER</span>
+              <span id="ticket-holder-name" class="font-display font-black text-xl text-[var(--ink-primary)]">DHRUV SINGH</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <span class="text-[10px] text-[var(--ink-secondary)] block">STUDENT PRN</span>
+                <span id="ticket-holder-prn" class="font-bold text-[var(--ink-primary)]">220010101</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-[var(--ink-secondary)] block">BRANCH / YEAR</span>
+                <span id="ticket-holder-branch" class="font-bold text-[var(--ink-primary)]">CSE (2nd Year)</span>
+              </div>
+            </div>
+            <div>
+              <span class="text-[10px] text-[var(--ink-secondary)] block">EVENT / COHORT INTAKE</span>
+              <span id="ticket-event-name" class="font-bold text-[#FF4D00] text-xs">General Society Intake (Cohort 2026)</span>
+            </div>
+            <div>
+              <span class="text-[10px] text-[var(--ink-secondary)] block">PASS ID // TIME OF ISSUE</span>
+              <span id="ticket-pass-id" class="text-[11px] text-[var(--ink-primary)]">CC-2026-9281 // 2026-04-12 18:00 IST</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-dashed border-[var(--border-hairline)] flex flex-col items-center">
+            <div class="h-10 w-full flex items-stretch gap-1 justify-center opacity-80">
+              <div class="w-1 bg-current"></div>
+              <div class="w-2 bg-current"></div>
+              <div class="w-0.5 bg-current"></div>
+              <div class="w-1.5 bg-current"></div>
+              <div class="w-3 bg-current"></div>
+              <div class="w-1 bg-current"></div>
+              <div class="w-2 bg-current"></div>
+              <div class="w-1.5 bg-current"></div>
+              <div class="w-0.5 bg-current"></div>
+              <div class="w-2.5 bg-current"></div>
+              <div class="w-1 bg-current"></div>
+              <div class="w-3 bg-current"></div>
+              <div class="w-1.5 bg-current"></div>
+              <div class="w-0.5 bg-current"></div>
+              <div class="w-2 bg-current"></div>
+              <div class="w-1 bg-current"></div>
+            </div>
+            <span class="font-mono text-[9px] text-[var(--ink-secondary)] mt-1 tracking-widest">* AUTHENTIC ITM CSE BADGE *</span>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <button id="copy-ticket-id-btn" class="btn-brutal-secondary flex-1 text-center font-mono text-xs">
+            COPY PASS ID
+          </button>
+          <button id="done-ticket-btn" class="btn-brutal-primary flex-1 text-center font-mono text-xs">
+            DONE / CLOSE
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Hardware CLI Modal (Ctrl+K) -->
+  <div id="cli-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cli-modal-title">
+    <div class="hardware-cli">
+      
+      <div class="hardware-chassis">
+        <div class="flex items-center gap-3">
+          <span class="led-indicator" title="System Operational"></span>
+          <span id="cli-modal-title" class="text-xs font-mono font-bold tracking-widest text-[#FF4D00]">
+            TE-OP//01 HARDWARE TERMINAL
+          </span>
+          <span class="text-[10px] text-[#888888] font-mono hidden sm:inline">ITM GWALIOR NODE</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="cli-sound-toggle" class="text-[10px] font-mono px-2 py-0.5 border border-[#444] text-[#AAA] hover:text-white transition-colors" title="Toggle mechanical key clicks">
+            AUDIO: <span id="sound-status">ON</span>
+          </button>
+          <button id="close-cli-modal-btn" class="text-[#FF4D00] hover:text-white font-mono text-xs font-bold px-2 py-0.5 border border-[#FF4D00]" aria-label="Close Terminal">
+            [ESC / X]
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-[#181818] px-4 py-2 border-b border-[#2A2A2A] flex flex-wrap gap-1.5 items-center text-[10px] font-mono text-[#888]">
+        <span>CHIPS:</span>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="help">help</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="events">events</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="domains">domains</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="stats">stats</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="join">join</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="mode">mode</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="clear">clear</button>
+        <button class="cli-chip text-[#00FF66] hover:underline" data-cmd="exit">exit</button>
+      </div>
+
+      <div id="cli-screen" class="cli-screen space-y-2 font-mono text-xs">
+        <div class="text-[#FF4D00] font-bold">
+          =======================================================<br>
+          CODECRAFT SOCIETY TERMINAL — ABOUT & EXPLORER NODE<br>
+          FIRMWARE VERSION 2026.4.1 [TE-SYNTH ARCHITECTURE]<br>
+          =======================================================
+        </div>
+        <div class="text-[#888888]">
+          Connected to local guild server (127.0.0.1:4000). Type <span class="text-[#00FF66] font-bold">'help'</span> to inspect available operational commands.
+        </div>
+      </div>
+
+      <div class="cli-input-row">
+        <span class="cli-prompt-symbol font-mono text-sm">user@codecraft:~$</span>
+        <input type="text" id="cli-input" class="cli-input" autocomplete="off" spellcheck="false" placeholder="type command (e.g. events, stats, mode)...">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SCRIPTS: GSAP, SCROLLTRIGGER, LENIS, MAIN
+       ========================================================================= -->
+  <!-- GSAP (3.12.5) & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll (1.1.18) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Main Interactions -->
+  <script src="js/main.js"></script>
+</body>
+</html>
