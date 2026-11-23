@@ -427,6 +427,78 @@ body {
   box-shadow: 2px 2px 0px var(--ink-primary);
 }
 
+/* Explore Hub Tabs (about.html) */
+.explore-tab {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.explore-tab:hover {
+  color: var(--ink-primary);
+  background-color: var(--bg-subtle);
+}
+
+.explore-tab.active {
+  background-color: var(--signal-orange);
+  color: #FFFFFF;
+  border-color: var(--ink-primary);
+  box-shadow: 2px 2px 0px var(--ink-primary);
+}
+
+/* Showcase Filter Buttons (about.html) */
+.showcase-filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.showcase-filter-btn:hover {
+  color: var(--ink-primary);
+  background-color: var(--bg-subtle);
+}
+
+.showcase-filter-btn.active {
+  background-color: var(--ink-primary);
+  color: var(--bg-primary);
+  border-color: var(--ink-primary);
+}
+
+/* Timeline Ledger Styles */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--border-hairline);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--signal-orange);
+  border: 2px solid var(--ink-primary);
+}
+
 .event-card {
   display: flex;
   flex-direction: column;

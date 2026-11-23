@@ -172,6 +172,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
+  // 4B. EXPLORE HUB TABS & SHOWCASE FILTER (about.html)
+  // =========================================================================
+  const exploreTabs = document.querySelectorAll('.explore-tab');
+  const explorePanes = document.querySelectorAll('.explore-pane');
+
+  exploreTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      exploreTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const targetPaneId = tab.getAttribute('data-target-pane');
+      explorePanes.forEach((pane) => {
+        if (pane.id === targetPaneId) {
+          pane.classList.remove('hidden');
+        } else {
+          pane.classList.add('hidden');
+        }
+      });
+
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
+  });
+
+  const showcaseFilterBtns = document.querySelectorAll('.showcase-filter-btn');
+  const showcaseCards = document.querySelectorAll('.showcase-card');
+
+  showcaseFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      showcaseFilterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-showcase-filter');
+      showcaseCards.forEach((card) => {
+        const cats = (card.getAttribute('data-showcase-category') || '').split(' ');
+        if (filter === 'all' || cats.includes(filter)) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
+  });
+
+  // =========================================================================
   // 5. STAT COUNTERS (.counter-number via GSAP ScrollTrigger)
   // =========================================================================
   const statsSection = document.getElementById('stats');
@@ -246,6 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroJoinBtn = document.getElementById('hero-join-btn');
   const ctaJoinBtn = document.getElementById('cta-join-btn');
   const mobileJoinBtn = document.getElementById('mobile-join-btn');
+  const aboutHeroJoinBtn = document.getElementById('about-hero-join-btn');
+  const contactJoinBtn = document.getElementById('contact-join-btn');
 
   function openRegistrationModal(preselectedEvent) {
     if (!regModal) return;
@@ -282,6 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroJoinBtn) heroJoinBtn.addEventListener('click', () => openRegistrationModal());
   if (ctaJoinBtn) ctaJoinBtn.addEventListener('click', () => openRegistrationModal());
+  if (aboutHeroJoinBtn) aboutHeroJoinBtn.addEventListener('click', () => openRegistrationModal());
+  if (contactJoinBtn) contactJoinBtn.addEventListener('click', () => openRegistrationModal());
   if (mobileJoinBtn) {
     mobileJoinBtn.addEventListener('click', () => {
       toggleMobileMenu();
@@ -380,6 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cliScreen = document.getElementById('cli-screen');
   const headerCliBtn = document.getElementById('header-cli-btn');
   const heroCliTrigger = document.getElementById('hero-cli-trigger');
+  const aboutHeroCliBtn = document.getElementById('about-hero-cli-btn');
   const footerCliBtn = document.getElementById('footer-cli-btn');
   const mobileCliBtn = document.getElementById('mobile-cli-btn');
   const closeCliModalBtn = document.getElementById('close-cli-modal-btn');
@@ -447,6 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (headerCliBtn) headerCliBtn.addEventListener('click', openCliModal);
   if (heroCliTrigger) heroCliTrigger.addEventListener('click', openCliModal);
+  if (aboutHeroCliBtn) aboutHeroCliBtn.addEventListener('click', openCliModal);
   if (footerCliBtn) footerCliBtn.addEventListener('click', openCliModal);
   if (mobileCliBtn) {
     mobileCliBtn.addEventListener('click', () => {
@@ -515,6 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendCliOutput(`
           <div class="text-[#A3A3A3] space-y-1 my-1">
             <div class="text-[#00FF66] font-bold">AVAILABLE COMMANDS:</div>
+            <div><strong class="text-white">home</strong>      - Navigate to Home Base (index.html)</div>
             <div><strong class="text-white">events</strong>    - Jump to calendar & sprint tournaments</div>
             <div><strong class="text-white">domains</strong>   - Jump to 7 specialized technical domains</div>
             <div><strong class="text-white">stats</strong>     - Jump to telemetry metrics & council wins</div>
@@ -528,22 +586,54 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
         break;
 
+      case 'home':
+      case 'index':
+        appendCliOutput('<div class="text-[#00FF66]">Navigating to Home Base (index.html)...</div>');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 250);
+        break;
+
       case 'events':
-        appendCliOutput('<div class="text-[#FF4D00]">Scrolling to Events Matrix...</div>');
-        closeCliModal();
-        smoothScrollTo('#events');
+        const eventsSec = document.getElementById('events');
+        if (eventsSec) {
+          appendCliOutput('<div class="text-[#FF4D00]">Scrolling to Events Matrix...</div>');
+          closeCliModal();
+          smoothScrollTo('#events');
+        } else {
+          appendCliOutput('<div class="text-[#FF4D00]">Navigating to Events on Home Base...</div>');
+          setTimeout(() => {
+            window.location.href = 'index.html#events';
+          }, 250);
+        }
         break;
 
       case 'domains':
-        appendCliOutput('<div class="text-[#00FF66]">Scrolling to Technical Domains...</div>');
-        closeCliModal();
-        smoothScrollTo('#domains');
+        const domainsSec = document.getElementById('domains');
+        if (domainsSec) {
+          appendCliOutput('<div class="text-[#00FF66]">Scrolling to Technical Domains...</div>');
+          closeCliModal();
+          smoothScrollTo('#domains');
+        } else {
+          appendCliOutput('<div class="text-[#00FF66]">Navigating to Domains on Home Base...</div>');
+          setTimeout(() => {
+            window.location.href = 'index.html#domains';
+          }, 250);
+        }
         break;
 
       case 'stats':
-        appendCliOutput('<div class="text-[#FF4D00]">Scrolling to Telemetry Stats...</div>');
-        closeCliModal();
-        smoothScrollTo('#stats');
+        const statsSec = document.getElementById('stats');
+        if (statsSec) {
+          appendCliOutput('<div class="text-[#FF4D00]">Scrolling to Telemetry Stats...</div>');
+          closeCliModal();
+          smoothScrollTo('#stats');
+        } else {
+          appendCliOutput('<div class="text-[#FF4D00]">Navigating to Stats on Home Base...</div>');
+          setTimeout(() => {
+            window.location.href = 'index.html#stats';
+          }, 250);
+        }
         break;
 
       case 'join':
