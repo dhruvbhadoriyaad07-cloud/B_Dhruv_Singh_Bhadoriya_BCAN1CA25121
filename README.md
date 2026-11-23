@@ -35,14 +35,16 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
   * **Inter**: Clear, legible editorial body copy.
   * **JetBrains Mono**: Technical metadata, coordinates, IDs, and code blocks.
 * **Blueprint Dot Grid**: Subtle architectural dot pattern with corner crosshairs (`+`) on cards.
-* **Crisp Custom Logo Badge**: Split black-and-white architectural badge reading `"CO DE | CRAFT </>" [ITM]`. Zero external raster images required.
+* **Official CodeCraft Society Logo**: Integrated official split cryptographic emblem (`img/codecraft-logo.jpg`) across header and footer, responsive across PAPER and INK dark themes.
 
-### B. 60FPS Three.js 3x3x3 Exploding Voxel Matrix (`js/three-scene.js`)
-* Renders a 3x3x3 architectural voxel matrix (27 cubes) inside `#sculpture-canvas` in the Hero section.
-* **Materials**: Mix of matte obsidian (`#0A0A0A`), brushed metallic light gray, and 4 Signal Orange (`#FF4D00`) accent cubes with sharp wireframe edges.
+### B. 60FPS Three.js Cyber-Architecture Core & Node Mesh (`js/three-scene.js`)
+* Renders an interactive architectural sculpture inside `#sculpture-canvas` in the Hero section.
+* **Central Core**: Crisp wireframe Icosahedron (radius ~1.45) with ink-responsive lines that switch dynamically between PAPER and INK dark mode, wrapping an inner faceted core with Signal Orange (`#FF4D00`) wireframe accents and an emissive central nucleus.
+* **Dual Gyroscopic Rings**: Two thin architectural torus rings orbiting the core at counter-angled planes, rotating in opposite directions, carrying 3 locked Signal Orange satellite nodes.
+* **Connected Data Constellation**: 45 floating geometric nodes connected by subtle dynamic hairline segments (`THREE.LineSegments`) for nearby peers.
 * **Performance Rule**: Pixel ratio capped to `Math.min(devicePixelRatio, 1.5)` and shadow maps disabled.
 * **IntersectionObserver Auto-Pausing**: When the user scrolls down, the Three.js `requestAnimationFrame` loop automatically pauses, freeing 100% of GPU resources for scrolling through subsequent sections.
-* **Interactions**: Smooth mouse/touch drag-to-rotate and interactive explosion dispersion along 3D vectors.
+* **Interactions**: Smooth mouse/touch drag-to-rotate, hover parallax, and scroll-linked network expansion.
 
 ### C. Teenage Engineering Style Hardware CLI Modal (`Ctrl+K`)
 * Industrial hardware terminal chassis with pulsating status LED, command chips, and synthesized Web Audio mechanical key clicks.
@@ -55,7 +57,7 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
   * `stats` — Displays telemetry statistics.
   * `join` / `register` — Launches the Event Registration Gateway modal.
   * `mode` — Toggles between PAPER and INK dark themes.
-  * `matrix` — Triggers 3D explosion animation on the voxel matrix.
+  * `matrix` — Triggers 3D burst & dispersion on the Cyber-Architecture Core & Node Mesh.
   * `about` — Navigates to About & Explore (`about.html`).
   * `clear` — Clears the terminal screen buffer.
   * `exit` / `quit` — Closes the terminal modal.
@@ -72,7 +74,7 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
   * **Showcase Matrix**: Multi-tag filtering (`ALL`, `WEB/SYSTEMS`, `AI/ML`, `OPEN SOURCE`, `PAST EVENTS`).
 
 ### F. Signature 60FPS Swiss Editorial Scroll Animations (GSAP + Lenis)
-* **Scroll-Exploding 3D Voxel Matrix**: 3x3x3 cubes smoothly disperse outward with slight individual rotation as user scrolls past hero, and reassemble when scrolling up.
+* **Scroll-Expanding 3D Network**: Cyber-architecture rings and constellation nodes smoothly expand outward with accelerated rotation as user scrolls past hero, and reassemble when scrolling up.
 * **Kinetic Hero Split Headline**: "CODE. / CREATE." scrubs left (`x: -40`) while "COLLABORATE." scrubs right (`x: +40`) via ScrollTrigger (`scrub: 0.6`).
 * **Sticky 3D Stacking Domain Cards**: Desktop deck stack where underlying cards gently scale down (`scale: 0.94`) and dim (`opacity: 0.75`) as next cards glide over.
 * **Clip-Path Portal Reveal**: Scrubbed entrance for `#stats` expanding from `clip-path: inset(0% 5% 0% 5%)` to `inset(0% 0% 0% 0%)`.
@@ -84,10 +86,10 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
 ## 3. Page Structure
 
 ### Page 1: `index.html` (Home Base)
-1. **Sticky Grid-Cell Header**: Split badge logo, GPS coordinates, desktop navigation, CLI trigger, theme toggle, and mobile drawer.
+1. **Sticky Grid-Cell Header**: Official CodeCraft Society logo, GPS coordinates, desktop navigation, CLI trigger, theme toggle, and mobile drawer.
 2. **Asymmetric Split 3D Hero Section (100vh)**:
    * Left (58%): Coordinates metadata, kinetic headline `"CODE. CREATE. COLLABORATE."`, mission intro, primary & secondary CTAs, micro status ticker.
-   * Right (42%): Three.js 3x3x3 exploding cube matrix canvas with architectural HUD overlays.
+   * Right (42%): Three.js Cyber-Architecture Core & Node Mesh canvas with architectural HUD overlays.
 3. **Upcoming Events Section (`#events`)**: 6 realistic event cards with date badges, venues, formats, seats remaining, and working registration buttons.
 4. **Technical Domains (`#domains`)**: 7 stacking domain studio cards (Web Dev, AI/ML, CP, Cybersecurity, Mobile, Open Source, Cloud/DevOps).
 5. **Club Highlights / Stats Portal (`#stats`)**: High-contrast dark section with 4 GSAP ScrollTrigger count-up counters (500+ Members, 25+ Events, 40+ Projects, 15+ National Wins).
@@ -113,7 +115,7 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
 | **Styling** | CSS3 & Tailwind CSS (CDN) | Custom CSS properties, grid/flexbox layouts, Swiss brutalist aesthetics |
 | **Typography** | Google Fonts | Space Grotesk, Inter, JetBrains Mono |
 | **Logic** | Vanilla JavaScript (ES6+) | Modular, zero-framework, DOM event-driven code |
-| **3D Graphics** | Three.js (r128) | WebGL 3x3x3 voxel sculpture with custom edge shaders |
+| **3D Graphics** | Three.js (r128) | WebGL Cyber-Architecture Core, Gyroscopic Rings & Node Mesh |
 | **Animation** | GSAP (3.12.5) & ScrollTrigger | Smooth stat counters and scroll listeners |
 | **Smooth Scroll** | Lenis (1.1.18) | Virtual smooth scroll synchronized with GSAP ticker |
 | **Audio** | Web Audio API | Synthesized mechanical keyboard sound effects |
@@ -145,7 +147,7 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
 * **60FPS Scroll Performance**: No `scroll-smooth` conflicts, `transform`-only scroll progress bar, and Three.js paused automatically when off-screen.
 * **100% Mobile Responsive**: Tested across smartphone (375px), tablet (768px), laptop (1024px), and desktop (1440px+) breakpoints with zero horizontal overflow.
 * **Zero Console Errors**: All DOM queries are safely guarded across both pages.
-* **Zero External Image Assets**: 100% vector badge graphics and CSS geometric patterns.
+* **Clean Asset Structure**: Official society identity (`img/codecraft-logo.jpg`) with zero external CDNs required for images.
 
 ---
 

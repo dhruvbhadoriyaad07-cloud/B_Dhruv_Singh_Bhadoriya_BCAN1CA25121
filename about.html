@@ -55,15 +55,8 @@
         <!-- Left: Custom Split Badge Logo + ITM Badge -->
         <div class="flex items-center gap-3 sm:gap-4">
           <a href="index.html" class="flex items-center gap-2.5 group text-decoration-none" title="CodeCraft Society — ITM University Gwalior">
-            <div class="h-9 sm:h-10 border border-[var(--border-hairline)] flex items-center shadow-sm overflow-hidden font-mono text-xs font-extrabold tracking-wider bg-white dark:bg-[#141414]">
-              <div class="bg-[#0A0A0A] text-[#F4F3EF] px-2 sm:px-2.5 py-1.5 flex items-center gap-1 border-r border-[#333333]">
-                <span class="tracking-widest">CO</span><span class="text-[#FF4D00]">DE</span>
-              </div>
-              <div class="bg-white dark:bg-[#1C1C1C] text-[var(--ink-primary)] px-2 sm:px-2.5 py-1.5 flex items-center gap-1">
-                <span>CRAFT</span>
-                <span class="text-[#FF4D00] font-mono font-bold">&lt;/&gt;</span>
-              </div>
-            </div>
+            <!-- Official CodeCraft Society Logo -->
+            <img src="img/codecraft-logo.jpg" alt="CodeCraft Society Logo" class="h-9 sm:h-10 w-auto object-contain">
             
             <div class="hidden sm:flex flex-col">
               <div class="flex items-center gap-1.5">
@@ -82,11 +75,11 @@
 
         <!-- Center: Desktop Nav Links (04. About & Explore is ACTIVE) -->
         <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="index.html#events" class="nav-link">01. Events</a>
-          <a href="index.html#domains" class="nav-link">02. Domains</a>
-          <a href="index.html#stats" class="nav-link">03. Stats</a>
-          <a href="about.html" class="nav-link active">
+          <a href="index.html" class="nav-link whitespace-nowrap">Home</a>
+          <a href="index.html#events" class="nav-link whitespace-nowrap">01. Events</a>
+          <a href="index.html#domains" class="nav-link whitespace-nowrap">02. Domains</a>
+          <a href="index.html#stats" class="nav-link whitespace-nowrap">03. Stats</a>
+          <a href="about.html" class="nav-link whitespace-nowrap active">
             04. About & Explore <span class="text-[#FF4D00] text-[10px]">↗</span>
           </a>
         </nav>
@@ -94,13 +87,13 @@
         <!-- Right: Action Buttons, CLI trigger, Paper/Ink Toggle, Mobile Menu -->
         <div class="flex items-center gap-2 sm:gap-3">
           
-          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5" title="Open Hardware CLI Terminal (Ctrl+K)">
+          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5 whitespace-nowrap" title="Open Hardware CLI Terminal (Ctrl+K)">
             <span class="text-[#FF4D00] font-bold">&gt;_</span>
             <span class="hidden sm:inline">CLI</span>
             <kbd class="hidden lg:inline-block bg-[var(--bg-surface)] text-[10px] px-1 py-0.5 border border-[var(--border-hairline)] font-mono">Ctrl+K</kbd>
           </button>
 
-          <button id="theme-toggle-btn" type="button" class="btn-tactical" title="Toggle Paper and Ink Dark Mode">
+          <button id="theme-toggle-btn" type="button" class="btn-tactical whitespace-nowrap" title="Toggle Paper and Ink Dark Mode">
             <span class="theme-icon mr-1">◐</span>
             <span class="theme-label hidden sm:inline">MODE: <span id="theme-name">PAPER</span></span>
           </button>
@@ -1115,14 +1108,7 @@
         <!-- Col 1 & 2: Brand & Address -->
         <div class="lg:col-span-2 space-y-4">
           <div class="flex items-center gap-2.5">
-            <div class="h-9 border border-[var(--border-hairline)] flex items-center font-mono text-xs font-black bg-white dark:bg-[#141414]">
-              <div class="bg-[#0A0A0A] text-[#F4F3EF] px-2 py-1 flex items-center gap-1 border-r border-[#333333]">
-                <span>CO</span><span class="text-[#FF4D00]">DE</span>
-              </div>
-              <div class="bg-white dark:bg-[#1C1C1C] text-[var(--ink-primary)] px-2 py-1">
-                <span>CRAFT &lt;/&gt;</span>
-              </div>
-            </div>
+            <img src="img/codecraft-logo.jpg" alt="CodeCraft Society Logo" class="h-9 sm:h-10 w-auto object-contain">
             <span class="bg-[#FF4D00] text-white text-[9px] font-mono font-bold px-1.5 py-0.5 border border-black uppercase">[ITM UNIVERSITY]</span>
           </div>
 
@@ -1221,47 +1207,49 @@
         </button>
       </div>
 
-      <div id="registration-form-container" class="p-6">
-        <p class="font-editorial text-xs text-[var(--ink-secondary)] mb-5">
-          Enter your official ITM University student credentials to apply for general club membership or select an upcoming 2026 sprint.
+      <div id="registration-form-container" class="p-5">
+        <p class="font-editorial text-xs text-[var(--ink-secondary)] mb-3">
+          Enter your student details to apply for general club membership or select an upcoming 2026 sprint.
         </p>
 
-        <form id="registration-form" class="space-y-4">
+        <form id="registration-form" class="space-y-3">
           <div>
             <label for="reg-name" class="label-brutal">FULL NAME *</label>
             <input type="text" id="reg-name" required placeholder="e.g. Dhruv Singh" class="input-brutal">
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label for="reg-roll" class="label-brutal">STUDENT ROLL NO / PRN *</label>
               <input type="text" id="reg-roll" required placeholder="e.g. 220010101" class="input-brutal">
             </div>
             <div>
-              <label for="reg-email" class="label-brutal">UNIVERSITY EMAIL *</label>
-              <input type="email" id="reg-email" required placeholder="name@itmuniversity.ac.in" class="input-brutal">
+              <label for="reg-email" class="label-brutal">EMAIL ADDRESS *</label>
+              <input type="email" id="reg-email" required placeholder="e.g. yourname@gmail.com" class="input-brutal">
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label for="reg-branch" class="label-brutal">BRANCH / MAJOR *</label>
               <select id="reg-branch" required class="input-brutal bg-[var(--bg-surface)]">
                 <option value="CSE">Computer Science & Eng (CSE)</option>
+                <option value="BCA">BCA (Bachelor of Computer Applications)</option>
+                <option value="MCA">MCA (Master of Computer Applications)</option>
                 <option value="AI-ML">CSE - Artificial Intelligence & ML</option>
                 <option value="DS">CSE - Data Science</option>
                 <option value="IT">Information Technology (IT)</option>
                 <option value="ECE">Electronics & Comm (ECE)</option>
-                <option value="OTHER">Other Engineering Major</option>
+                <option value="OTHER">Other Department</option>
               </select>
             </div>
             <div>
               <label for="reg-year" class="label-brutal">ACADEMIC YEAR *</label>
               <select id="reg-year" required class="input-brutal bg-[var(--bg-surface)]">
-                <option value="1st Year">1st Year (Freshman)</option>
-                <option value="2nd Year" selected>2nd Year (Sophomore)</option>
-                <option value="3rd Year">3rd Year (Junior)</option>
-                <option value="4th Year">4th Year (Senior)</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year" selected>2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
               </select>
             </div>
           </div>
@@ -1284,7 +1272,7 @@
             <input type="tel" id="reg-phone" required placeholder="+91 98765 43210" class="input-brutal">
           </div>
 
-          <div class="pt-3">
+          <div class="pt-2">
             <button type="submit" class="btn-brutal-primary w-full text-center">
               GENERATE DIGITAL CREDENTIAL PASS ->
             </button>
@@ -1292,8 +1280,8 @@
         </form>
       </div>
 
-      <div id="registration-ticket-state" class="hidden p-6">
-        <div class="ticket-pass p-6 mb-6">
+      <div id="registration-ticket-state" class="hidden p-5">
+        <div class="ticket-pass p-5 mb-4">
           <div class="flex items-center justify-between pb-4 border-b border-dashed border-[var(--border-hairline)] font-mono text-xs">
             <div class="flex items-center gap-1.5 font-bold">
               <span class="text-[#FF4D00]">CODECRAFT</span>

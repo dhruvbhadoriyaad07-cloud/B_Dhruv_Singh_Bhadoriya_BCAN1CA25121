@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 2. Scroll-Exploding 3D Voxel Matrix via ScrollTrigger (index.html)
+    // 2. Scroll-Expanding 3D Cyber-Architecture Core & Node Mesh via ScrollTrigger (index.html)
     if (heroSection) {
       ScrollTrigger.create({
         trigger: heroSection,
@@ -724,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div><strong class="text-white">stats</strong>     - Jump to telemetry metrics & council wins</div>
             <div><strong class="text-white">join</strong>      - Open registration gate for events & cohort 2026</div>
             <div><strong class="text-white">mode</strong>      - Switch between PAPER and INK dark mode</div>
-            <div><strong class="text-white">matrix</strong>    - Trigger 3D exploding cube matrix animation</div>
+            <div><strong class="text-white">matrix</strong>    - Trigger 3D Cyber-Architecture Core & Node Mesh burst</div>
             <div><strong class="text-white">about</strong>     - Navigate to About & Explore (about.html)</div>
             <div><strong class="text-white">clear</strong>     - Clear terminal buffer</div>
             <div><strong class="text-white">exit</strong>      - Close hardware terminal</div>
@@ -798,9 +798,9 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'matrix':
         if (typeof window.explodeMatrix === 'function') {
           const factor = window.explodeMatrix();
-          appendCliOutput(`<div class="text-[#FF4D00]">Voxel Matrix dispersion toggled: ${factor.toFixed(2)}</div>`);
+          appendCliOutput(`<div class="text-[#FF4D00]">Neural Core & Node Mesh dispersion: ${factor.toFixed(2)}x</div>`);
         } else {
-          appendCliOutput('<div class="text-yellow-400">3D Matrix scene not initialized.</div>');
+          appendCliOutput('<div class="text-yellow-400">3D Cyber-Architecture scene not initialized.</div>');
         }
         break;
 
