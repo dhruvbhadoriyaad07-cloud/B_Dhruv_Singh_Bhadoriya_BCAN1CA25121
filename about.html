@@ -87,7 +87,7 @@
         <!-- Right: Action Buttons, CLI trigger, Paper/Ink Toggle, Mobile Menu -->
         <div class="flex items-center gap-2 sm:gap-3">
           
-          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5 whitespace-nowrap" title="Open Hardware CLI Terminal (Ctrl+K)">
+          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5 whitespace-nowrap" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">
             <span class="text-[#FF4D00] font-bold">&gt;_</span>
             <span class="hidden sm:inline">CLI</span>
             <kbd class="hidden lg:inline-block bg-[var(--bg-surface)] text-[10px] px-1 py-0.5 border border-[var(--border-hairline)] font-mono">Ctrl+K</kbd>
@@ -126,7 +126,7 @@
       </div>
       <div class="pt-2 flex flex-col gap-2">
         <button id="mobile-join-btn" class="btn-brutal-primary w-full text-center">JOIN THE CLUB / REGISTER</button>
-        <button id="mobile-cli-btn" class="btn-brutal-secondary w-full text-center">&gt;_ HARDWARE CLI</button>
+        <button id="mobile-cli-btn" class="btn-brutal-secondary w-full text-center" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">&gt;_ HARDWARE CLI</button>
       </div>
     </div>
   </header>
@@ -166,7 +166,7 @@
               <button id="about-hero-join-btn" type="button" class="btn-brutal-primary">
                 JOIN THE SOCIETY / REGISTER ↗
               </button>
-              <button id="about-hero-cli-btn" type="button" class="btn-tactical py-3 px-4">
+              <button id="about-hero-cli-btn" type="button" class="btn-tactical py-3 px-4" title="Launch Hardware Terminal Console (Shortcut: Ctrl+K)">
                 <span class="text-[#FF4D00] font-bold">&gt;_</span> LAUNCH TERMINAL (Ctrl+K)
               </button>
               <a href="index.html" class="btn-brutal-secondary">
@@ -316,8 +316,14 @@
           </span>
         </div>
 
+        <!-- Subtle Helper Note -->
+        <div class="pt-4 flex items-center gap-2 font-mono text-[11px] text-[#FF4D00] font-semibold tracking-wider select-none">
+          <span class="w-1.5 h-1.5 bg-[#FF4D00] inline-block animate-pulse"></span>
+          <span>[ SELECT A CATEGORY TO INSPECT ARCHIVES ]</span>
+        </div>
+
         <!-- Category Tabs -->
-        <div class="flex gap-2 overflow-x-auto py-6 border-b border-[var(--border-hairline)] no-scrollbar">
+        <div class="flex gap-2 overflow-x-auto py-4 border-b border-[var(--border-hairline)] no-scrollbar">
           <button class="explore-tab active" data-target-pane="pane-projects">STUDENT PROJECTS</button>
           <button class="explore-tab" data-target-pane="pane-hackathons">HACKATHONS & CONTESTS</button>
           <button class="explore-tab" data-target-pane="pane-workshops">WORKSHOPS & SESSIONS</button>
@@ -1083,9 +1089,9 @@
                 <span>DISCORD SERVER</span>
                 <span class="text-[10px]">#codecraft-arena ↗</span>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
+              <a href="https://www.instagram.com/codecraftsociety01" target="_blank" rel="noopener noreferrer" class="flex justify-between items-center p-3 border border-[var(--border-hairline)] bg-[var(--bg-surface)] hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors">
                 <span>INSTAGRAM FEED</span>
-                <span class="text-[10px]">@codecraft_itm ↗</span>
+                <span class="text-[10px]">@codecraftsociety01 ↗</span>
               </a>
             </div>
           </div>
@@ -1148,7 +1154,7 @@
             <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">GitHub Org ↗</a></li>
             <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">LinkedIn Page ↗</a></li>
             <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">Discord Server ↗</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">Instagram Feed ↗</a></li>
+            <li><a href="https://www.instagram.com/codecraftsociety01" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] transition-colors">Instagram Feed ↗</a></li>
           </ul>
         </div>
 
@@ -1162,7 +1168,7 @@
             <div>STATUS: <span class="text-[#00D26A] font-bold">● ONLINE</span></div>
             <div>TIME: <span id="footer-utc-clock">IST (UTC+5:30)</span></div>
           </div>
-          <button id="footer-cli-btn" class="btn-tactical w-full text-center">
+          <button id="footer-cli-btn" class="btn-tactical w-full text-center" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">
             &gt;_ LAUNCH CLI TERMINAL
           </button>
         </div>

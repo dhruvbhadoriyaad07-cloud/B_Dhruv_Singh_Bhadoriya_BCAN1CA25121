@@ -88,7 +88,7 @@
         <div class="flex items-center gap-2 sm:gap-3">
           
           <!-- Teenage Engineering CLI Trigger Button -->
-          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5 whitespace-nowrap" title="Open Hardware CLI Terminal (Ctrl+K)">
+          <button id="header-cli-btn" type="button" class="btn-tactical flex items-center gap-1.5 whitespace-nowrap" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">
             <span class="text-[#FF4D00] font-bold">&gt;_</span>
             <span class="hidden sm:inline">CLI</span>
             <kbd class="hidden lg:inline-block bg-[var(--bg-surface)] text-[10px] px-1 py-0.5 border border-[var(--border-hairline)] font-mono">Ctrl+K</kbd>
@@ -129,7 +129,7 @@
       </div>
       <div class="pt-2 flex flex-col gap-2">
         <button id="mobile-join-btn" class="btn-brutal-primary w-full text-center">JOIN THE CLUB / REGISTER</button>
-        <button id="mobile-cli-btn" class="btn-brutal-secondary w-full text-center">&gt;_ HARDWARE CLI</button>
+        <button id="mobile-cli-btn" class="btn-brutal-secondary w-full text-center" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">&gt;_ HARDWARE CLI</button>
       </div>
     </div>
   </header>
@@ -185,9 +185,15 @@
               <span class="font-mono text-xs">→</span>
             </a>
 
-            <button id="hero-cli-trigger" type="button" class="btn-tactical py-3 px-4">
-              <span class="text-[#FF4D00] font-bold">&gt;_</span> LAUNCH TERMINAL
+            <button id="hero-cli-trigger" type="button" class="btn-tactical py-3 px-4" title="Launch Hardware Terminal Console (Shortcut: Ctrl+K)">
+              <span class="text-[#FF4D00] font-bold">&gt;_</span> LAUNCH TERMINAL <kbd class="hidden sm:inline bg-[var(--bg-surface)] text-[9px] px-1 py-0.5 border border-[var(--border-hairline)] font-mono ml-1">Ctrl+K</kbd>
             </button>
+          </div>
+
+          <!-- Hero CTA Guidance Subtitle -->
+          <div class="font-mono text-[11px] text-[var(--ink-secondary)] flex items-center gap-1.5 select-none pt-1">
+            <span class="text-[#FF4D00] font-bold">ℹ</span>
+            <span>[ TIP: Click 'Join the Club' to get an instant digital pass, or press Ctrl+K for quick terminal navigation ]</span>
           </div>
 
           <!-- Micro Technical Status Grid -->
@@ -1108,7 +1114,7 @@
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] flex items-center gap-1.5 transition-colors">
+              <a href="https://www.instagram.com/codecraftsociety01" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF4D00] flex items-center gap-1.5 transition-colors">
                 <span>Instagram Feed</span> <span class="text-[10px]">↗</span>
               </a>
             </li>
@@ -1126,7 +1132,7 @@
             <div>ACC: <span class="text-[var(--ink-primary)] font-bold">ITM GWL CSE</span></div>
             <div>TIME: <span id="footer-utc-clock">IST (UTC+5:30)</span></div>
           </div>
-          <button id="footer-cli-btn" class="btn-tactical w-full text-center">
+          <button id="footer-cli-btn" class="btn-tactical w-full text-center" title="Open Hardware CLI Terminal (Shortcut: Ctrl+K)">
             &gt;_ LAUNCH CLI TERMINAL
           </button>
         </div>
