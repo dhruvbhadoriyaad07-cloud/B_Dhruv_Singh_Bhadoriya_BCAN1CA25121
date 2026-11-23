@@ -71,6 +71,14 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
   * **Explore Hub**: 6 switchable category tabs (`STUDENT PROJECTS`, `HACKATHONS & CONTESTS`, `WORKSHOPS & SESSIONS`, `OPEN-SOURCE INITIATIVES`, `LEARNING ROADMAPS`, `PAST EVENT HIGHLIGHTS`).
   * **Showcase Matrix**: Multi-tag filtering (`ALL`, `WEB/SYSTEMS`, `AI/ML`, `OPEN SOURCE`, `PAST EVENTS`).
 
+### F. Signature 60FPS Swiss Editorial Scroll Animations (GSAP + Lenis)
+* **Scroll-Exploding 3D Voxel Matrix**: 3x3x3 cubes smoothly disperse outward with slight individual rotation as user scrolls past hero, and reassemble when scrolling up.
+* **Kinetic Hero Split Headline**: "CODE. / CREATE." scrubs left (`x: -40`) while "COLLABORATE." scrubs right (`x: +40`) via ScrollTrigger (`scrub: 0.6`).
+* **Sticky 3D Stacking Domain Cards**: Desktop deck stack where underlying cards gently scale down (`scale: 0.94`) and dim (`opacity: 0.75`) as next cards glide over.
+* **Clip-Path Portal Reveal**: Scrubbed entrance for `#stats` expanding from `clip-path: inset(0% 5% 0% 5%)` to `inset(0% 0% 0% 0%)`.
+* **Masked Heading Reveals**: Clean staggered entrances (`y: 36, opacity: 0` -> `y: 0, opacity: 1`, `ease: power3.out`) for section headings, cards, and timeline entries.
+* **Velocity Marquee**: Signal Orange banner dynamically accelerates and skews with Lenis scroll velocity.
+
 ---
 
 ## 3. Page Structure

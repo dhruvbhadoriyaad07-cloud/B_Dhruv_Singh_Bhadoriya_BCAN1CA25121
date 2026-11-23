@@ -160,10 +160,28 @@
   // 6. Interaction State
   let explosionFactor = 1.0;
   let targetExplosion = 1.0;
+  let scrollExplosion = 0.0;
   let isHovered = false;
   let isDragging = false;
   let prevPointer = { x: 0, y: 0 };
   let targetRotation = { x: 0.35, y: 0.65 };
+
+  // Scroll-linked explosion: track hero section scroll progress
+  function updateScrollExplosion() {
+    if (!isCanvasInView) return;
+    const hero = container.closest('.hero-split') || container;
+    const rect = hero.getBoundingClientRect();
+    const heroHeight = rect.height || window.innerHeight;
+    const progress = Math.max(0, Math.min(1.2, -rect.top / heroHeight));
+    scrollExplosion = progress * 1.6;
+  }
+  window.addEventListener('scroll', updateScrollExplosion, { passive: true });
+
+  window.setMatrixScrollExplosion = function (progress) {
+    if (typeof progress === 'number') {
+      scrollExplosion = Math.max(0, Math.min(1.5, progress)) * 1.6;
+    }
+  };
 
   container.addEventListener('mouseenter', () => {
     isHovered = true;
@@ -266,10 +284,12 @@
       matrixGroup.rotation.x += (targetRotation.x - matrixGroup.rotation.x) * 0.06;
     }
 
-    // Explosion dispersion lerp
-    explosionFactor += (targetExplosion - explosionFactor) * 0.08;
+    // Explosion dispersion lerp (combines hover, drag, and scroll-linked dispersion)
+    const effectiveTarget = (isHovered ? 1.7 : targetExplosion) + scrollExplosion;
+    explosionFactor += (effectiveTarget - explosionFactor) * 0.1;
 
-    // Position updates
+    // Position updates and individual tumbling rotation on dispersion
+    const dispersionDelta = Math.max(0, explosionFactor - 1.0);
     for (let i = 0; i < cubes.length; i++) {
       const c = cubes[i];
       if (c.isCenter) {
@@ -277,6 +297,12 @@
       } else {
         const targetPos = c.basePos.clone().multiplyScalar(explosionFactor);
         c.mesh.position.lerp(targetPos, 0.14);
+
+        // Smooth individual tumbling rotation that resets cleanly when reassembled
+        const rotAmount = dispersionDelta * 0.35;
+        c.mesh.rotation.x = c.basePos.x * rotAmount;
+        c.mesh.rotation.y = c.basePos.y * rotAmount;
+        c.mesh.rotation.z = c.basePos.z * rotAmount;
       }
     }
 

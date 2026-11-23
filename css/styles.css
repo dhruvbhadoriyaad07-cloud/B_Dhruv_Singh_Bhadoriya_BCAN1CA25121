@@ -515,20 +515,39 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   8. DOMAINS STACKING CARDS
+   8. DOMAINS STACKING CARDS (STICKY 3D DECK)
    -------------------------------------------------------------------------- */
 .domain-card {
   background-color: var(--bg-surface);
   border: 2px solid var(--border-hairline);
   box-shadow: 4px 4px 0px var(--border-hairline);
-  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   position: relative;
+}
+
+@media (min-width: 1024px) {
+  #domains .domain-card {
+    position: sticky;
+    will-change: transform, opacity;
+  }
+  #domains .domain-card:nth-child(1) { top: 90px; }
+  #domains .domain-card:nth-child(2) { top: 106px; }
+  #domains .domain-card:nth-child(3) { top: 122px; }
+  #domains .domain-card:nth-child(4) { top: 138px; }
+  #domains .domain-card:nth-child(5) { top: 154px; }
+  #domains .domain-card:nth-child(6) { top: 170px; }
+  #domains .domain-card:nth-child(7) { top: 186px; }
+}
+
+@media (max-width: 1023px) {
+  #domains .domain-card {
+    position: static !important;
+  }
 }
 
 .domain-card:hover {
   background-color: var(--surface-hover);
   border-color: var(--signal-orange);
-  transform: translate3d(-2px, -2px, 0);
 }
 
 /* --------------------------------------------------------------------------
@@ -539,6 +558,8 @@ body {
   color: #F4F3EF;
   position: relative;
   overflow: hidden;
+  clip-path: inset(0% 0% 0% 0%);
+  will-change: clip-path;
 }
 
 .stats-portal::before {
@@ -705,10 +726,17 @@ body {
 /* --------------------------------------------------------------------------
    11. MARQUEE & TICKER TAPE
    -------------------------------------------------------------------------- */
+.hero-split-left,
+.hero-split-right {
+  display: inline-block;
+  will-change: transform;
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee-scroll 24s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {

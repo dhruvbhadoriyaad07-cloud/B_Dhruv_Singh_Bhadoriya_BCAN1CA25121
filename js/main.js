@@ -285,6 +285,152 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
+  // 5B. SIGNATURE 60FPS SWISS EDITORIAL SCROLL ANIMATIONS (GSAP + SCROLLTRIGGER)
+  // =========================================================================
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    
+    // 1. Kinetic Hero Split Headline (index.html)
+    const heroSection = document.querySelector('.hero-split');
+    const heroLeft = document.querySelector('.hero-split-left');
+    const heroRight = document.querySelector('.hero-split-right');
+
+    if (heroSection && heroLeft && heroRight) {
+      gsap.to(heroLeft, {
+        x: -40,
+        ease: 'none',
+        force3D: true,
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.6
+        }
+      });
+
+      gsap.to(heroRight, {
+        x: 40,
+        ease: 'none',
+        force3D: true,
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.6
+        }
+      });
+    }
+
+    // 2. Scroll-Exploding 3D Voxel Matrix via ScrollTrigger (index.html)
+    if (heroSection) {
+      ScrollTrigger.create({
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.5,
+        onUpdate: (self) => {
+          if (typeof window.setMatrixScrollExplosion === 'function') {
+            window.setMatrixScrollExplosion(self.progress);
+          }
+        }
+      });
+    }
+
+    // 3. Sticky 3D Stacking Domain Cards (#domains)
+    const domainCards = document.querySelectorAll('#domains .domain-card');
+    if (domainCards.length > 1 && window.innerWidth >= 1024) {
+      domainCards.forEach((card, i) => {
+        if (i < domainCards.length - 1) {
+          const nextCard = domainCards[i + 1];
+          gsap.to(card, {
+            scale: 0.94,
+            opacity: 0.75,
+            ease: 'none',
+            force3D: true,
+            transformOrigin: 'top center',
+            scrollTrigger: {
+              trigger: nextCard,
+              start: 'top 240px',
+              end: 'top 120px',
+              scrub: true
+            }
+          });
+        }
+      });
+    }
+
+    // 4. Clip-Path Portal Reveal (#stats)
+    if (statsSection) {
+      gsap.fromTo(statsSection,
+        { clipPath: 'inset(0% 5% 0% 5%)' },
+        {
+          clipPath: 'inset(0% 0% 0% 0%)',
+          ease: 'power1.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: statsSection,
+            start: 'top 85%',
+            end: 'top 25%',
+            scrub: 0.5
+          }
+        }
+      );
+    }
+
+    // 5. Masked Heading Reveals & Staggered Entrance (index.html & about.html)
+    const revealSelectors = [
+      'main section h2',
+      '#events-grid .event-card',
+      '.timeline-item',
+      '.showcase-card'
+    ];
+
+    revealSelectors.forEach((selector) => {
+      const els = document.querySelectorAll(selector);
+      if (!els.length) return;
+      els.forEach((el) => {
+        gsap.fromTo(el,
+          { y: 36, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            ease: 'power3.out',
+            force3D: true,
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 92%',
+              once: true
+            }
+          }
+        );
+      });
+    });
+
+    // 6. Velocity Marquee Acceleration via Lenis scroll callback
+    const marqueeTrack = document.querySelector('.marquee-track');
+    if (lenis && marqueeTrack) {
+      lenis.on('scroll', (e) => {
+        const vel = Math.max(-12, Math.min(12, e.velocity || 0));
+        gsap.to(marqueeTrack, {
+          x: `+=${vel * 2.5}`,
+          skewX: vel * 0.12,
+          duration: 0.25,
+          ease: 'power1.out',
+          overwrite: 'auto',
+          force3D: true
+        });
+      });
+    }
+
+    // 7. Refresh ScrollTrigger when web fonts are ready
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh();
+      });
+    }
+  }
+
+  // =========================================================================
   // 6. REGISTRATION / JOIN CLUB MODAL (#registration-modal)
   // =========================================================================
   const regModal = document.getElementById('registration-modal');
