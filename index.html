@@ -209,28 +209,115 @@
 
       </div>
 
-      <!-- Right Column (42%): Framed Three.js Cyber-Architecture Core & Node Mesh Canvas -->
-      <div class="sculpture-container flex flex-col justify-between relative border-t lg:border-t-0">
+      <!-- Right Column (42%): Swiss Cyber-Terminal & Live Command Console -->
+      <div class="hero-console-container flex flex-col justify-center items-center p-6 sm:p-8 lg:p-10 relative border-t lg:border-t-0 bg-[var(--bg-subtle)] overflow-hidden">
         
-        <!-- Architectural Canvas Badges -->
-        <div class="sculpture-overlay-badge top-3 left-3 z-10 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 bg-[#FF4D00] inline-block animate-ping"></span>
-          <span>NEURAL_CORE // THREE.JS R128</span>
+        <!-- Architectural Coordinate & Diagnostic Watermarks -->
+        <div class="absolute top-3 left-4 font-mono text-[10px] text-[var(--ink-secondary)] flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00D26A] animate-pulse"></span>
+          <span>CONSOLE // SECURE TTY_1</span>
+        </div>
+        <div class="absolute top-3 right-4 font-mono text-[10px] text-[var(--ink-secondary)] hidden sm:block">
+          STATUS: <span class="text-[#FF4D00] font-bold">PRODUCTION</span>
         </div>
 
-        <div class="sculpture-overlay-badge top-3 right-3 z-10 text-[10px]">
-          INTERACTION: [DRAG / HOVER]
+        <!-- Sleek Brutalist Terminal Chassis -->
+        <div class="hero-terminal-chassis w-full max-w-lg border-2 border-[var(--border-hairline)] bg-[#0C0C0C] text-[#EAE8E1] shadow-[8px_8px_0px_#0A0A0A] dark:shadow-[8px_8px_0px_#FF4D00] transition-transform duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px]">
+          
+          <!-- Top Window Bar: Red/Yellow/Green Dots + Title -->
+          <div class="terminal-window-bar flex items-center justify-between px-4 py-3 bg-[#171717] border-b border-[#262626]">
+            <!-- Minimalist Window Dots -->
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] inline-block" title="Close Window"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] inline-block" title="Minimize Window"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] inline-block" title="Maximize Window"></span>
+            </div>
+
+            <!-- Terminal Title -->
+            <div class="font-mono text-[11px] sm:text-xs font-bold text-[#A3A3A3] tracking-wider truncate px-2">
+              codecraft-engine // v2026.4 [SECURE NODE]
+            </div>
+
+            <!-- Quick Action / TTY Badge -->
+            <div class="font-mono text-[10px] text-[#00D26A] font-bold bg-[#00D26A]/10 border border-[#00D26A]/30 px-1.5 py-0.5">
+              ACTIVE
+            </div>
+          </div>
+
+          <!-- Inside Terminal: Syntax-Highlighted Live Code Snippet in JetBrains Mono -->
+          <div class="terminal-body p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed space-y-3 bg-[#0C0C0C]">
+            
+            <!-- Command 1 -->
+            <div class="flex items-start gap-2">
+              <span class="text-[#FF4D00] font-bold select-none">$</span>
+              <div>
+                <span class="text-[#FFFFFF] font-bold">itm-guild init</span>
+                <span class="text-[#00E5FF] font-medium">--track=b</span>
+                <span class="text-[#FFBD2E] font-medium">--style=swiss</span>
+              </div>
+            </div>
+
+            <!-- Output 1 -->
+            <div class="pl-4 space-y-1 text-[11px] sm:text-xs text-[#A3A3A3]">
+              <div class="flex items-center justify-between">
+                <span>&gt; Loading modules...</span>
+                <span class="text-[#00D26A] font-bold font-mono">[OK]</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>&gt; Syncing 500+ student nodes (Gwalior Node)...</span>
+                <span class="text-[#00D26A] font-bold font-mono">[ONLINE]</span>
+              </div>
+            </div>
+
+            <!-- Command 2 -->
+            <div class="flex items-start gap-2 pt-2 border-t border-[#1C1C1C]">
+              <span class="text-[#FF4D00] font-bold select-none">$</span>
+              <div>
+                <span class="text-[#FFFFFF] font-bold">cargo run</span>
+                <span class="text-[#00E5FF] font-medium">--bin codecraft-cli</span>
+                <span class="text-[#FFBD2E] font-medium">--release</span>
+              </div>
+            </div>
+
+            <!-- Output 2 -->
+            <div class="pl-4 space-y-1 text-[11px] sm:text-xs text-[#A3A3A3]">
+              <div>&gt; Compiling neural core &amp; distributed mesh...</div>
+              <div class="flex items-center justify-between flex-wrap gap-1">
+                <span>&gt; Status: <strong class="text-[#00D26A]">99.98% operational</strong>.</span>
+                <span class="text-[#FF4D00] font-bold">Ready for deployment.</span>
+              </div>
+            </div>
+
+            <!-- Live Interactive Cursor Prompt -->
+            <div class="flex items-center gap-2 pt-2 border-t border-[#1C1C1C] text-[11px] sm:text-xs">
+              <span class="text-[#FF4D00] font-bold select-none">$</span>
+              <span class="text-[#00E5FF]">codecraft</span>
+              <span class="text-white">--interactive</span>
+              <span class="w-2 h-4 bg-[#FF4D00] inline-block animate-pulse"></span>
+            </div>
+
+          </div>
+
+          <!-- Bottom Console Telemetry Strip -->
+          <div class="terminal-footer flex items-center justify-between px-4 py-2.5 bg-[#141414] border-t border-[#262626] font-mono text-[10px] text-[#888888]">
+            <div class="flex items-center gap-3">
+              <span>LATENCY: <strong class="text-[#00D26A]">4ms</strong></span>
+              <span class="hidden sm:inline">PROTO: <strong class="text-white">WSS//TLSv1.3</strong></span>
+            </div>
+            <button id="hero-terminal-cli-btn" type="button" class="text-[#FF4D00] hover:text-white font-bold tracking-wider uppercase transition-colors flex items-center gap-1">
+              <span>&gt;_ RUN CLI</span>
+              <kbd class="hidden sm:inline bg-[#222222] text-[9px] px-1 py-0.5 border border-[#333333] text-[#CCCCCC]">Ctrl+K</kbd>
+            </button>
+          </div>
+
         </div>
 
-        <!-- The Canvas -->
-        <canvas id="sculpture-canvas" aria-label="Interactive 3D Cyber-Architecture Core and Node Mesh"></canvas>
-
-        <div class="sculpture-overlay-badge bottom-3 left-3 z-10 text-[10px] hidden sm:block">
-          GEOMETRY: GYRO CORE + NODE MESH
+        <!-- Architectural Bottom Crosshairs / Watermark -->
+        <div class="absolute bottom-3 left-4 font-mono text-[10px] text-[var(--ink-secondary)] hidden sm:block">
+          ARCH: <span class="text-[var(--ink-primary)]">x86_64 // LINUX KERNEL 6.8</span>
         </div>
-
-        <div class="sculpture-overlay-badge bottom-3 right-3 z-10 text-[10px]">
-          <span class="text-[#FF4D00]">SCROLL</span>: EXPAND NETWORK
+        <div class="absolute bottom-3 right-4 font-mono text-[10px] text-[var(--ink-secondary)]">
+          NODE: <span class="text-[#FF4D00] font-bold">TURARI-GWALIOR</span>
         </div>
 
       </div>

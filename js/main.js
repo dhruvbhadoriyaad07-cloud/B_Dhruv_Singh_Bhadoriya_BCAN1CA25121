@@ -581,6 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cliScreen = document.getElementById('cli-screen');
   const headerCliBtn = document.getElementById('header-cli-btn');
   const heroCliTrigger = document.getElementById('hero-cli-trigger');
+  const heroTerminalCliBtn = document.getElementById('hero-terminal-cli-btn');
   const aboutHeroCliBtn = document.getElementById('about-hero-cli-btn');
   const footerCliBtn = document.getElementById('footer-cli-btn');
   const mobileCliBtn = document.getElementById('mobile-cli-btn');
@@ -649,6 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (headerCliBtn) headerCliBtn.addEventListener('click', openCliModal);
   if (heroCliTrigger) heroCliTrigger.addEventListener('click', openCliModal);
+  if (heroTerminalCliBtn) heroTerminalCliBtn.addEventListener('click', openCliModal);
   if (aboutHeroCliBtn) aboutHeroCliBtn.addEventListener('click', openCliModal);
   if (footerCliBtn) footerCliBtn.addEventListener('click', openCliModal);
   if (mobileCliBtn) {

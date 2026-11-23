@@ -89,7 +89,7 @@ The platform is built as a zero-dependency, ultra-fast client-side application t
 1. **Sticky Grid-Cell Header**: Official CodeCraft Society logo, GPS coordinates, desktop navigation, CLI trigger, theme toggle, and mobile drawer.
 2. **Asymmetric Split 3D Hero Section (100vh)**:
    * Left (58%): Coordinates metadata, kinetic headline `"CODE. CREATE. COLLABORATE."`, mission intro, primary & secondary CTAs, micro status ticker.
-   * Right (42%): Three.js Cyber-Architecture Core & Node Mesh canvas with architectural HUD overlays.
+   * Right (42%): Swiss Cyber-Terminal & Live Command Console card with syntax-highlighted commands and live node telemetry.
 3. **Upcoming Events Section (`#events`)**: 6 realistic event cards with date badges, venues, formats, seats remaining, and working registration buttons.
 4. **Technical Domains (`#domains`)**: 7 stacking domain studio cards (Web Dev, AI/ML, CP, Cybersecurity, Mobile, Open Source, Cloud/DevOps).
 5. **Club Highlights / Stats Portal (`#stats`)**: High-contrast dark section with 4 GSAP ScrollTrigger count-up counters (500+ Members, 25+ Events, 40+ Projects, 15+ National Wins).

@@ -374,13 +374,27 @@ body {
   }
 }
 
-.sculpture-container {
+.sculpture-container,
+.hero-console-container {
   position: relative;
   width: 100%;
   height: 100%;
   min-height: 480px;
-  background: var(--bg-subtle);
+  background-color: var(--bg-subtle);
+  background-image: radial-gradient(var(--dot-grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
   overflow: hidden;
+}
+
+.hero-terminal-chassis {
+  font-family: var(--font-mono);
+  box-shadow: 8px 8px 0px var(--border-hairline);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-terminal-chassis:hover {
+  transform: translate3d(-2px, -2px, 0);
+  box-shadow: 10px 10px 0px var(--signal-orange);
 }
 
 #sculpture-canvas {
